@@ -4,7 +4,6 @@
     <router-view />
     <Footer />
   </div>
-  <InlineSvg class="tw-hidden" :src="require('@/assets/sprites/sprite-icons.svg')" />
 </template>
 
 <script>
