@@ -6,15 +6,15 @@
           <router-link class="logo lg:tw-mr-16 xl:tw-mr-40 2xl:tw-mr-[87px]" to="/">
             <img
               class="tw-w-full"
-              width="146"
-              height="60"
+              width="83"
+              height="40"
               src="@/assets/images/logo.svg"
               alt="логотип грани"
             >
           </router-link>
 
           <router-link
-            class="tw-hidden lg:tw-block tw-pt-4 tw-pr-4 lg:tw-mr-16 xl:tw-mr-24 lg:hover:tw-underline"
+            class="tw-hidden tw-text-gray lg:tw-block tw-pt-4 tw-pr-4 lg:tw-mr-16 xl:tw-mr-24 lg:hover:tw-underline"
             :to="{ name: 'about' }"
           >
             О проекте
@@ -23,32 +23,32 @@
           <div class="tw-hidden 2xl:tw-grow 2xl:tw-block"></div>
 
           <router-link
-            class="tw-hidden lg:tw-flex lg:tw-items-center lg:tw-mr-16 xl:tw-mr-24 lg:hover:tw-underline"
+            class="tw-hidden tw-text-gray lg:tw-flex lg:tw-items-center lg:tw-mr-16 xl:tw-mr-24 lg:hover:tw-underline"
             :to="{ name: 'flats.params' }"
           >
             <svg class="tw-w-[36px] tw-h-[36px] lg:tw-mr-14">
-              <use xlink:href="#b-key"></use>
+              <use xlink:href="/sprite.svg#b-key"></use>
             </svg>
             <div class="tw-leading-100">Подобрать квартиру</div>
           </router-link>
 
           <div class="tw-hidden lg:tw-flex tw-mr-16 2xl:tw-mr-20">
             <router-link
-              class="tw-flex tw-items-center tw-bg-orange tw-rounded-l-md lg:tw-px-8 lg:hover:tw-underline lg:hover:tw-bg-orangeHover xl:tw-px-14 tw-py-10"
+              class="tw-flex tw-items-center tw-bg-orange tw-text-white tw-rounded-l-[14px] lg:tw-px-8 lg:hover:tw-bg-orangeHover xl:tw-px-14 tw-py-10"
               :to="{ name: 'facad' }"
             >
               <svg class="tw-w-[30px] tw-h-[30px] tw-mr-10 tw-fill-white">
-                <use xlink:href="#fasad"></use>
+                <use xlink:href="/sprite.svg#fasad"></use>
               </svg>
               <div class="tw-leading-100 tw-pt-4">на фасаде</div>
             </router-link>
 
             <router-link
-              class="tw-flex tw-items-center tw-bg-orange tw-rounded-r-md lg:tw-px-8 lg:hover:tw-underline lg:hover:tw-bg-orangeHover xl:tw-px-14 tw-py-10"
+              class="tw-flex tw-items-center tw-bg-orange tw-text-white tw-rounded-r-[14px] lg:tw-px-8 lg:hover:tw-bg-orangeHover xl:tw-px-14 tw-py-10"
               :to="{ name: 'flats.params' }"
             >
               <svg class="tw-w-[30px] tw-h-[30px] tw-mr-10 tw-fill-white">
-                <use xlink:href="#params"></use>
+                <use xlink:href="/sprite.svg#params"></use>
               </svg>
               <div class="tw-leading-100 tw-pt-4">по параметрам</div>
             </router-link>
@@ -56,20 +56,14 @@
 
           <div class="tw-hidden lg:tw-block tw-leading-120 lg:tw-mr-20 xl:tw-mr-[42px] 2xl:tw-mr-[124px]">
             <a
-              class="tw-font-[nexa-reg] lg:tw-text-sm xl:tw-text-md tw-mb-2 tw-block lg:hover:tw-opacity-90 tw-tracking-tighter"
+              class="tw-text-gray lg:tw-text-sm xl:tw-text-md tw-mb-2 tw-block lg:hover:tw-opacity-90 tw-tracking-tighter"
               :href="`tel:${$store.getters.unmaskedPhone($store.state.headerPhone)}`"
             >
               {{ $store.state.headerPhone }}
             </a>
-            <AppLink
-              sizeClasses="lg:tw-text-sm xl:tw-text-base"
-              external
-              native
-              to="#"
-              @click.prevent="callbackToggle"
-            >
+            <a class="tw-underline tw-text-base" href="#" @click.prevent="callbackToggle">
               Заказать звонок
-            </AppLink>
+            </a>
           </div>
 
           <button
@@ -77,13 +71,13 @@
             @click="navToggle"
           >
             <svg class="tw-w-full tw-h-full">
-              <use :xlink:href="navValue ? '#b-cross' : '#b-menu'"></use>
+              <use xlink:href="/sprite.svg#b-menu"></use>
             </svg>
           </button>
 
           <button class="lg:tw-hidden" @click="toolsToggle">
-            <svg class="tw-w-[36px] tw-h-[36px] lg:tw-mr-14">
-              <use :xlink:href="toolsValue ? '#b-cross' : '/sprite.svg#b-plan'"></use>
+            <svg class="tw-w-[36px] tw-h-[36px] lg:tw-mr-14 tw-fill-gray">
+              <use :xlink:href="toolsValue ? '/sprite.svg#close' : '/sprite.svg#b-plan'"></use>
             </svg>
           </button>
         </div>
@@ -91,26 +85,26 @@
     </div>
 
     <div
-      class="lg:tw-hidden tw-py-20 tw-absolute tw-z-0 tw-bottom-0 tw-translate-y-full tw-rounded-b-md tw-inset-x-0 tw-bg-primary tw-bg-opacity-70 tw-backdrop-blur-[14px]"
+      class="lg:tw-hidden tw-py-20 tw-absolute tw-z-0 tw-bottom-0 tw-translate-y-full tw-rounded-b-md tw-inset-x-0 tools-bg tw-bg-opacity-40 tw-backdrop-blur-[7px]"
       :class="[ toolsValue ? 'tw-block' : 'tw-hidden' ]"
     >
       <div class="wrapper">
         <div class="tw-flex">
           <router-link
-            class="tw-w-1/2 tw-flex tw-items-center tw-bg-orange tw-rounded-l-md tw-px-8 tw-py-15 tw-border-r tw-border-[#DB5C00]"
-            :to="{ name: 'facad'  }"
+            class="tw-w-1/2 tw-flex tw-items-center tw-bg-orange tw-rounded-l-[14px] tw-text-white tw-px-8 tw-py-15 tw-border-r tw-border-[#DB5C00]"
+            :to="{ name: 'facad' }"
           >
             <svg class="tw-w-[30px] tw-h-[30px] tw-mr-10 tw-fill-white">
-              <use xlink:href="#fasad"></use>
+              <use xlink:href="/sprite.svg#fasad"></use>
             </svg>
             <div class="tw-leading-100 tw-pt-4">на фасаде</div>
           </router-link>
           <router-link
-            class="tw-w-1/2 tw-flex tw-items-center tw-bg-orange tw-rounded-r-md tw-px-8 tw-py-15"
+            class="tw-w-1/2 tw-flex tw-items-center tw-bg-orange tw-rounded-r-[14px] tw-text-white tw-px-8 tw-py-15"
             :to="{ name: 'flats.params' }"
           >
             <svg class="tw-w-[30px] tw-h-[30px] tw-mr-10 tw-fill-white">
-              <use xlink:href="#params"></use>
+              <use xlink:href="/sprite.svg#params"></use>
             </svg>
             <div class="tw-leading-100 tw-pt-4">по параметрам</div>
           </router-link>
@@ -167,14 +161,25 @@ export default {
 
 <style scoped>
   .logo {
-    width: 146px;
-    height: 54px;
+    width: 83px;
+    height: 40px;
+  }
+
+  @screen lg {
+    .logo {
+      width: 94px;
+      height: 44px;
+    }
   }
 
   @screen 2xl {
     .logo {
-      width: 181px;
-      height: 66px;
+      width: 125px;
+      height: 60px;
     }
+  }
+
+  .tools-bg {
+    background: rgba(184, 198, 214, 0.4);
   }
 </style>
