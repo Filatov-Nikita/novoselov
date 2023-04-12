@@ -13,12 +13,14 @@ module.exports = {
       '2xl': '1920px',
     },
     colors: {
-      orange: '#FF6B00',
-      orangeHover: '#FF8413',
-      white: '#FFFFFF',
-      gray: '#D7D7D7',
-      primary: '#081924',
-      secondary: '#718A98',
+      orange: '#FBB03B',
+      orangeHover: '#E99512',
+      white: '#F5F5F5',
+      gray: '#9BA5B0',
+      primary: '#F5F5F5',
+      secondary: '#2F4258',
+      blue: '#3AB2ED',
+
       dark: '#142D3E',
       negative: '#f00',
       positive: '#0AB81B'
@@ -68,7 +70,8 @@ module.exports = {
       xxs: '10px'
     },
     fontFamily: {
-      'nexa': ['Nexa', 'Arial', 'sans-serif']
+      'stolz': ['stolz', 'Arial', 'sans-serif'],
+      'arial': ['Arial', 'sans-serif'],
     }
   },
   plugins: [],
