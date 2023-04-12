@@ -1,0 +1,15 @@
+@font-face {
+  font-family: 'stolz';
+  src: url('./Stolzl-Regular.woff2'),
+  url('./Stolzl-Regular.woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'stolz';
+  src: url('./Stolzl-Bold.woff2'),
+  url('./Stolzl-Bold.woff');
+  font-weight: 800;
+  font-style: normal;
+}

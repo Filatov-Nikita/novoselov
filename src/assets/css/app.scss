@@ -1,4 +1,4 @@
-@import '../fonts/Nexa/styles.css';
+@import '../fonts/stolz/styles.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -9,7 +9,7 @@
 @layer base {
   body {
     line-height: 1.4;
-    @apply tw-font-nexa tw-text-sm tw-text-white;
+    @apply tw-font-arial tw-text-sm tw-text-secondary;
   }
 }
 
