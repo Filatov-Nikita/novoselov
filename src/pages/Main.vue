@@ -1,63 +1,61 @@
 <template>
-  <div class="layout-base tw-bg-primary tw-h-screen tw-overflow-hidden tw-relative tw-z-0 overlay">
-    <Header opacityClass="tw-bg-opacity-40" />
-    <div class="slider tw-absolute tw-inset-0 -tw-z-10">
-      <div
-        class="tw-bg-cover tw-bg-center tw-opacity-0 tw-transition-opacity tw-duration-500 tw-absolute tw-inset-0"
-        :style="{ 'background-image': `url(${slide.image})` }"
-        :class="{ 'tw-opacity-100 tw-z-10': i === current }"
-        v-for="(slide, i) in slides"
-        :key="i"
-      ></div>
-    </div>
-
-    <main class="content tw-flex tw-pb-[8vh]">
-      <div class="wrapper tw-w-full tw-mt-auto">
-        <div class="slides">
-          <p class="tw-font-extrabold tw-text-xl md:tw-text-xl10 2xl:tw-text-xl20 tw-leading-100" v-html="slide.text"></p>
-          <div class="controls tw-space-x-4 tw-mt-26 landscape:tw-mt-4">
-            <button
-              class="controls__item" :class="{ 'controls__item--active': i === current }"
-              v-for="(slide, i) in slides"
-              :key="i"
-              @click="onClick(i)"
-            ></button>
-          </div>
+  <div class="layout-base tw-bg-primary tw-h-screen tw-overflow-hidden tw-relative">
+    <Header />
+    <div class="slider">
+      <div class="text">
+        <div class="text-p">
+          <p class="tw-font-stolz tw-text-lg 2xl:tw-text-xl tw-font-normal tw-leading-120" v-html="slide.text"></p>
+        </div>
+        <div class="controls tw-mt-30 lg:tw-mt-60">
+          <div
+            class="controlOne"
+            :class="{ 'controlOne-active': current === index }"
+            v-for="item, index in slides"
+            @click="_e => current = index"
+          ></div>
         </div>
       </div>
-    </main>
-
+      <div class="picture">
+        <div
+          class="imgOne"
+          v-for="item, index in slides"
+          :style="styles(item)"
+          :class="{ 'current': current === index }"
+        >
+      </div>
+      </div>
+    </div>
     <Footer />
 
     <GDialog v-model="showedBanners" background="transparent" content-class="tw-h-screen tw-flex tw-items-center tw-justify-center tw-relative">
-        <template #default="{ onClose }">
-          <button
-            class="tw-absolute tw-right-30 tw-top-0"
-            @click="onClose"
-          >
-            <AppIcon name="close" size="36px" fill="white" />
-          </button>
-          <div class="tw-absolute tw-left-1/2 tw-top-1/2 -tw-translate-x-1/2 -tw-translate-y-1/2 -tw-z-10">
-            <Spinner size="100px" />
-          </div>
-          <template v-for="banner in banners">
-            <img
-              v-if="isMobileBanner && banner.title === 'banner-mobile'"
-              class="tw-w-auto tw-max-h-full"
-              :src="banner.url"
-              alt="баннер"
-              @click="showCallback"
-            />
-            <img
-              v-else-if="!isMobileBanner && banner.title === 'banner-desktop'"
-              class="tw-w-auto tw-max-h-full tw-cursor-pointer"
-              :src="banner.url"
-              alt="баннер"
-              @click="showCallback"
-            />
-          </template>
+      <template #default="{ onClose }">
+        <button
+          class="tw-absolute tw-right-30 tw-top-0"
+          @click="onClose"
+        >
+          <AppIcon name="close" size="36px" fill="white" />
+        </button>
+        <div class="tw-absolute tw-left-1/2 tw-top-1/2 -tw-translate-x-1/2 -tw-translate-y-1/2 -tw-z-10">
+          <Spinner size="100px" />
+        </div>
+        <template v-for="banner in banners">
+          <img
+            v-if="isMobileBanner && banner.title === 'banner-mobile'"
+            class="tw-w-auto tw-max-h-full"
+            :src="banner.url"
+            alt="баннер"
+            @click="showCallback"
+          />
+          <img
+            v-else-if="!isMobileBanner && banner.title === 'banner-desktop'"
+            class="tw-w-auto tw-max-h-full tw-cursor-pointer"
+            :src="banner.url"
+            alt="баннер"
+            @click="showCallback"
+          />
         </template>
-      </GDialog>
+      </template>
+    </GDialog>
   </div>
 </template>
 <script>
@@ -83,17 +81,13 @@ export default {
       current: 0,
       slides: [
         {
-          text: 'Новые грани жизни',
+          text: 'Старт продаж квартир <br class="md:tw-hidden lg:tw-block"> в&nbsp;новом доме',
+          image: require('@/assets/images/main/home.png'),
+        },
+        {
+          text: 'Старт продаж квартир -&nbsp;это здорово!',
           image: require('@/assets/images/main/render-1.jpg'),
         },
-        {
-          text: 'Высотные дома в&nbsp;тихом центре',
-          image: require('@/assets/images/main/render-4.jpg'),
-        },
-        {
-          text: 'Новые грани комфорта',
-          image: require('@/assets/images/main/render-3.jpg'),
-        }
       ]
     }
   },
@@ -134,59 +128,112 @@ export default {
       return this.slides[this.current];
     },
     styles() {
-      return {
-        'background-image': `url(${this.slide.image})`,
-      }
+      return (slide) => ({
+        'background-image': `url(${slide.image})`,
+      })
     }
   },
 }
 </script>
-<style scoped lang="scss">
-.content {
-  position: relative;
-  z-index: 0;
-}
+<style scoped>
+  .slider {
+    display: grid;
+    grid-template-areas: "picture" "text";
+    grid-template-columns: 100%;
+    grid-template-rows: 1fr auto;
+    row-gap: 30px;
+    padding: 30px 16px;
+  }
 
-.slides {
-  max-width: 450px;
-  @apply md:tw-max-w-[600px] 2xl:tw-max-w-[800px];
-}
+  .text {
+    grid-area: text;
+    align-self: center;
+  }
 
-.controls {
-  display: flex;
-  align-items: center;
+  .text-p {
+    max-width: 343px;
+  }
 
-  &__item {
+  .picture {
+    grid-area: picture;
+    position: relative;
+  }
+
+  .imgOne {
+    border-radius: 24px;
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity, 500ms;
+    z-index: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .current {
+    opacity: 1;
+    z-index: 10;
+  }
+
+  .controlOne {
+    padding: 4px;
     width: 14px;
     height: 14px;
-    line-height: 12px;
-    flex-shrink: 0;
-    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+    box-sizing: content-box;
     text-align: center;
-    @apply tw-border tw-border-orange tw-border-opacity-0;
+  }
 
-    &--active {
-      @apply tw-border-opacity-100;
+  .controls {
+    display: flex;
+  }
+
+  .controlOne::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(47, 66, 88, 0.15);
+    line-height: 14px;
+    display: inline-block;
+    box-sizing: content-box;
+    vertical-align: middle;
+  }
+
+  .controlOne-active::before {
+    border: 4px solid #C5EAFF;
+  }
+
+  @screen md {
+    .slider {
+      padding: 30px 40px;
     }
-
-    &::after {
-      content: '';
-      display: inline-block;
-      vertical-align: middle;
-      width: 6px;
-      height: 6px;
-      background: #FFFFFF;
-      border-radius: 50%;
+    .text-p {
+      max-width: 490px;
     }
   }
-}
 
-.overlay::after {
-  content: '';
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 100%);
-  height: 40vh;
-  min-height: 360px;
-  z-index: -1;
-  @apply  tw-block tw-absolute tw-inset-x-0 tw-bottom-0;
-}
+  @screen lg {
+    .slider {
+      grid-template-areas: "text picture";
+      grid-template-columns: 400px 1fr;
+      grid-template-rows: auto;
+      column-gap: 17px;
+    }
+    .text-p {
+      max-width: 343px;
+    }
+  }
+
+  @screen 2xl {
+    .slider {
+      grid-template-columns: 600px 1fr;
+    }
+
+    .text-p {
+      max-width: 380px;
+    }
+  }
 </style>
