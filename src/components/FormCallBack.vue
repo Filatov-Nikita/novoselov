@@ -1,36 +1,38 @@
 <template>
-  <div class="tw-py-40 tw-px-16 md:tw-px-[98px] md:tw-py-80 lg:tw-px-[50px] lg:tw-py-40 2xl:tw-px-[150px] 2xl:tw-py-[50px] tw-bg-dark tw-relative">
-    <div class="tw-max-w-[343px] lg:tw-max-w-[430px] 2xl:tw-max-w-[620px] tw-w-full tw-mx-auto tw-relative tw-z-10">
-      <p class="tw-max-w-[280px] 2xl:tw-max-w-[465px] lg:tw-max-w-full tw-mb-20 tw-text-lg 2xl:tw-text-xl10 tw-leading-[84%] tw-font-extrabold">
-        заказать звонок
-      </p>
-      <!-- <p class="tw-text-secondary tw-text-md tw-leading-120 tw-mb-30 2xl:tw-max-w-[430px]">
-        Оставьте заявку, и наши менеджеры свяжутся с вами в&nbsp;течение 30 мин
-      </p> -->
-      <Form v-slot="{ isSubmitting }" @submit="submit">
-        <div class="tw-flex tw-flex-wrap -tw-ml-10">
+  <div class="tw-bg-dark tw-rounded-[24px] tw-py-[45px] tw-px-16 md:tw-px-[36px] 2xl:tw-py-[76px] 2xl:tw-px-[145px]">
+    <div class="xl:tw-flex 2xl:tw-block">
+      <div class="xl:tw-basis-[420px] xl:tw-mr-40 2xl:tw-mr-0">
+        <p class="tw-text-lg tw-text-white tw-font-stolz tw-mb-10 2xl:tw-text-xl">
+          Заказать звонок
+        </p>
+        <p class="tw-text-md tw-leading-120 tw-text-gray tw-mb-30 tw-max-w-[320px] md:tw-max-w-[430px]">
+          Оставьте заявку и&nbsp;наши менеджеры свяжутся с&nbsp;вами в&nbsp;ближайшее время
+        </p>
+      </div>
+      <Form class="tw-grow" v-slot="{ isSubmitting }" @submit="submit">
+        <div class="md:tw-flex md:tw-space-x-20 md:tw-items-center">
           <AppInput
-            class="tw-pl-10 tw-basis-full lg:tw-basis-1/2 2xl:tw-basis-[210px]"
+            class="md:tw-basis-[190px]"
             rules="required"
             name="name"
             label="Ваше имя"
           />
           <AppInput
+            class="md:tw-basis-[190px]"
             rules="required|cellphone"
-            class="tw-pl-10 tw-basis-full lg:tw-basis-1/2 2xl:tw-basis-[210px]"
             name="cellphone"
             label="Номер телефона"
             type="tel"
           />
           <AppButton
-            class="tw-ml-[10px] tw-mt-12 2xl:tw-ml-15 tw-basis-full 2xl:tw-basis-[175px] tw-self-start"
+            class="tw-mt-20 tw-w-full tw-py-15 md:tw-mt-0 md:tw-basis-[200px]"
             type="submit"
             :disabled="isSubmitting"
           >
             Отправить
           </AppButton>
         </div>
-        <AppCheckbox class="tw-mt-24" name="agreement" label="Условия" rules="required">
+        <AppCheckbox class="tw-mt-30 tw-text-gray tw-text-xs md:tw-mt-10 xl:tw-mt-25" name="agreement" label="Условия" rules="required">
           Я согласен с <AppLink native to="/policy.pdf" target="_blank">условиями передачи информации</AppLink>
         </AppCheckbox>
       </Form>
@@ -48,3 +50,5 @@ export default {
   }
 }
 </script>
+<style scoped>
+</style>

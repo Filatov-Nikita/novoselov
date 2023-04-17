@@ -40,7 +40,7 @@ export default {
       let tag;
       const linkClass = props.external ? `tw-text-orange tw-flex tw-items-center lg:hover:tw-opacity-90 ${props.sizeClasses}` : 'tw-underline';
       if(props.native) {
-        tag = h('a', { ...attrs, class: [linkClass, attrs?.class], href: props.to }, slot)
+        tag = h('a', { ...attrs, class: [linkClass, attrs?.class, 'tw-text-blue'], href: props.to }, slot)
       } else {
         tag = h(
           resolveComponent('router-link'),

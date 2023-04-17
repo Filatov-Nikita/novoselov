@@ -19,9 +19,9 @@ module.exports = {
       gray: '#9BA5B0',
       primary: '#F5F5F5',
       secondary: '#2F4258',
+      yellow: '#F7A21F',
       blue: '#3AB2ED',
-
-      dark: '#142D3E',
+      dark: '#18283A',
       negative: '#f00',
       positive: '#0AB81B'
     },

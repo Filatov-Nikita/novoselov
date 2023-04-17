@@ -26,7 +26,7 @@
   }
 
   .h1 {
-    @apply tw-text-lg tw-font-extrabold tw-leading-100 tw-lowercase;
+    @apply tw-text-lg tw-leading-100 tw-font-normal tw-text-dark tw-font-stolz;
   }
 
   .layout-base {
@@ -85,7 +85,7 @@
     }
 
     .h1 {
-      @apply tw-text-xl tw-font-extrabold;
+      @apply tw-text-xl;
     }
   }
 

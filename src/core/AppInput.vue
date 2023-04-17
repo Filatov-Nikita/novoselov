@@ -100,6 +100,7 @@ export default {
     background: transparent;
     outline: none;
     height: 100%;
+    color: theme('colors.white');
   }
 
   .input::-webkit-outer-spin-button,
@@ -117,7 +118,7 @@ export default {
     transform: translateY(0px);
     top: 0;
     bottom: auto;
-    @apply tw-text-xs tw-text-secondary tw-leading-140;
+    @apply tw-text-xs tw-leading-140;
   }
 
   .label {
@@ -131,6 +132,7 @@ export default {
     bottom: 0px;
     left: 0;
     right: 0;
+    color: theme('colors.gray');
   }
 
   .errorMessage, .caption {
