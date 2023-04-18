@@ -1,6 +1,6 @@
 <template>
   <div
-    class="-tw-mx-16 md:tw-mx-0 tw-flex tw-flex-wrap l-b-color md:tw-border-l"
+    class="-tw-mx-16 md:tw-mx-0 tw-flex tw-flex-wrap md:tw-border-dark-line md:tw-border-opacity-15 md:tw-border-l"
     :class="{ 'tw-border-t': items.length > 1 }"
   >
     <FlatsParamsItem
@@ -33,7 +33,4 @@ export default {
 }
 </script>
 <style scoped>
-
-.l-b-color {
-  border-color:rgba(47, 66, 88, 0.15);
-}</style>
+</style>

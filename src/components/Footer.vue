@@ -1,5 +1,5 @@
 <template>
-  <footer class="tw-border-t footer-bt tw-py-[13px] md:tw-py-20 xl:tw-py-25">
+  <footer class="tw-border-t tw-border-dark-line tw-border-opacity-15 tw-py-[13px] md:tw-py-20 xl:tw-py-25">
     <div class="wrapper 2xl:tw-max-w-none 2xl:tw-px-40">
       <div class="tw-flex tw-flex-wrap tw-items-center">
         <a href="#" class="logo tw-block tw-mr-30 tw-mb-8 xl:tw-mb-0">
@@ -70,9 +70,5 @@ export default {
   .logo {
     width: 152px;
     height: 30px;
-  }
-
-  .footer-bt {
-    border-top: 1px solid rgba(47, 66, 88, 0.15);
   }
 </style>

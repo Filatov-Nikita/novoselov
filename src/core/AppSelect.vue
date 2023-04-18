@@ -13,7 +13,7 @@
           class="tw-pb-6 tw-border-b tw-cursor-pointer tw-block tw-w-full tw-text-left tw-min-h-[50px] tw-relative tw-pr-26"
           :class="{
             'tw-border-negative': errorMessage,
-            's-b-color': !errorMessage && !showed,
+            'tw-border-dark-line tw-border-opacity-15': !errorMessage && !showed,
             'tw-border-orange': !errorMessage && showed
           }"
           @click="toggle"
@@ -114,9 +114,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.s-b-color {
-  border-color:rgba(47, 66, 88, 0.15);
-}
-</style>

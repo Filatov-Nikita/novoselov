@@ -6,6 +6,11 @@ module.exports = {
   ],
   prefix: 'tw-',
   theme: {
+    extend: {
+      opacity: {
+        '15': '.15'
+      }
+    },
     screens: {
       'md': '768px',
       'lg': '1024px',
@@ -23,7 +28,8 @@ module.exports = {
       blue: '#3AB2ED',
       dark: '#18283A',
       negative: '#f00',
-      positive: '#0AB81B'
+      positive: '#0AB81B',
+      'dark-line': '#2F4258'
     },
     lineHeight: {
       '140': '1.4',

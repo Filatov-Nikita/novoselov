@@ -1,6 +1,6 @@
 <template>
   <header class="tw-relative tw-z-50" v-click-outside="onOutside">
-    <div class="h-bor-b tw-py-[13px] lg:tw-py-[23px] 2xl:tw-py-[17px] tw-bg-primary tw-backdrop-blur-[14px]" :class="[ opacityClass ]">
+    <div class="tw-border-dark-line tw-border-opacity-15 tw-border-b tw-py-[13px] lg:tw-py-[23px] 2xl:tw-py-[17px] tw-bg-primary tw-backdrop-blur-[14px]" :class="[ opacityClass ]">
       <div class="wrapper 2xl:tw-max-w-none 2xl:tw-px-40">
         <div class="tw-flex tw-items-center tw-justify-between lg:tw-justify-start">
           <router-link class="logo lg:tw-mr-16 xl:tw-mr-40 2xl:tw-mr-[87px]" to="/">
@@ -163,10 +163,6 @@ export default {
   .logo {
     width: 83px;
     height: 40px;
-  }
-
-  .h-bor-b {
-    border-bottom: 1px solid rgba(47, 66, 88, 0.15);
   }
 
   @screen lg {

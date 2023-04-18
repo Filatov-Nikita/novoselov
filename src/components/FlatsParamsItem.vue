@@ -1,6 +1,6 @@
 <template>
   <router-link
-    class="tw-text-secondary tw-py-20 tw-px-16 tw-border-b md:tw-border-r i-b-color md:tw-w-1/2 tw-flex tw-flex-wrap xl:hover:tw-bg-[#f1f1f1] xl:tw-transition-colors"
+    class="tw-text-secondary tw-py-20 tw-px-16 tw-border-b md:tw-border-r tw-border-dark-line tw-border-opacity-15 md:tw-w-1/2 tw-flex tw-flex-wrap xl:hover:tw-bg-[#f1f1f1] xl:tw-transition-colors"
     :to="{ name: 'flats.one', params: { id: item.id } }"
   >
     <div class="xl:tw-w-1/2 2xl:tw-w-1/3">
@@ -54,9 +54,5 @@ export default {
 <style scoped>
 .item:hover > div:first-child {
   opacity: 0.7;
-}
-
-.i-b-color {
-  border-color:rgba(47, 66, 88, 0.15);
 }
 </style>

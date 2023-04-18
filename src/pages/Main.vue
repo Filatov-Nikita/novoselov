@@ -195,11 +195,11 @@ export default {
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: rgba(47, 66, 88, 0.15);
     line-height: 14px;
     display: inline-block;
     box-sizing: content-box;
     vertical-align: middle;
+    @apply tw-bg-opacity-15 tw-bg-dark-line;
   }
 
   .controlOne-active::before {
