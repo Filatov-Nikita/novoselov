@@ -1,5 +1,5 @@
 <template>
-  <header class="tw-relative tw-z-10" v-click-outside="onOutside">
+  <header class="tw-relative tw-z-50" v-click-outside="onOutside">
     <div class="tw-border-b tw-border-dark tw-py-[13px] lg:tw-py-[23px] 2xl:tw-py-[17px] tw-bg-primary tw-backdrop-blur-[14px]" :class="[ opacityClass ]">
       <div class="wrapper 2xl:tw-max-w-none 2xl:tw-px-40">
         <div class="tw-flex tw-items-center tw-justify-between lg:tw-justify-start">
@@ -85,7 +85,7 @@
     </div>
 
     <div
-      class="lg:tw-hidden tw-py-20 tw-absolute tw-z-0 tw-bottom-0 tw-translate-y-full tw-rounded-b-md tw-inset-x-0 tools-bg tw-bg-opacity-40 tw-backdrop-blur-[7px]"
+      class="lg:tw-hidden tw-py-20 tw-absolute tw-z-50 tw-bottom-0 tw-translate-y-full tw-rounded-b-md tw-inset-x-0 tools-bg tw-bg-opacity-40 tw-backdrop-blur-[7px]"
       :class="[ toolsValue ? 'tw-block' : 'tw-hidden' ]"
     >
       <div class="wrapper">
