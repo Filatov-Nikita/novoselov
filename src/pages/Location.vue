@@ -4,15 +4,15 @@
       <div class="xl:tw-w-1/2 md:tw-relative md:tw-z-10">
         <h1 class="h1 tw-mb-20 2xl:tw-mb-[50px]">расположение</h1>
           <div
-            class="tw-flex tw-overflow-x-auto app-scroll-x tw-pb-20 tw-mb-20 md:tw-max-w-[600px] md:tw-flex-wrap xl:tw-max-w-[370px] xl:-tw-mt-10 xl:-tw-ml-30"
+            class="tw-flex tw-overflow-x-auto app-scroll-x tw-pb-20 tw-mb-20 -tw-ml-20 md:tw-max-w-[700px] md:-tw-mt-16 md:tw-flex-wrap xl:tw-max-w-[450px] xl:-tw-mt-10 xl:-tw-ml-30"
           >
           <div
-            class="tw-shrink-0 tw-mr-20 last:tw-mr-0 xl:tw-w-1/2 xl:tw-mr-0 xl:tw-pt-10 xl:tw-pl-30"
+            class="tw-shrink-0 tw-pl-20 md:tw-pt-16 md:tw-w-1/4 last:tw-mr-0 xl:tw-w-1/2 xl:tw-mr-0 xl:tw-pt-10 xl:tw-pl-30"
             v-for="tab in tabs"
             :key="tab.name"
           >
               <TabsItem
-                class="xl:tw-w-full"
+                class="md:tw-w-full"
 
                 :active="tabValue === tab.name"
                 :fill="tab.fill"
