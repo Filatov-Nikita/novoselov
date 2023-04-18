@@ -3,7 +3,7 @@
     <div class="wrapper tw-h-full">
       <div class="2xl:tw-h-full news">
         <div class="left app-scroll-y tw-pt-20">
-          <h1 class="h1 tw-mb-20">новости и акции</h1>
+          <h1 class="h1 tw-mb-20">Новости и акции</h1>
           <NewsList v-if="items" :items="items" />
           <div
             class="tw-text-center tw-pt-20"
