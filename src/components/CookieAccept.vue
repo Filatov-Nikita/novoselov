@@ -1,6 +1,6 @@
 <template>
   <Transition class="tw-transition-opacity tw-duration-300" leave-active-class="tw-opacity-0">
-    <div v-if="show" class="tw-rounded-md tw-bg-primary tw-flex tw-items-center tw-px-12 tw-py-10">
+    <div v-if="show" class="tw-rounded-[14px] tw-text-white tw-bg-secondary tw-flex tw-items-center tw-px-12 tw-py-10">
       <p class=" tw-mr-20">Мы используем куки, чтобы пользоваться сайтом было удобно</p>
       <AppButton @click="accept">Ок</AppButton>
     </div>
