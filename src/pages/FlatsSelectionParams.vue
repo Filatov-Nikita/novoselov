@@ -3,12 +3,8 @@
     <div>
       <div class="wrapper">
         <h1 class="h1">Подбор по параметрам</h1>
-        <section class="tw-pb-120 tw-pt-80">
+        <section class="tw-pb-20 lg:tw-py-80 md:tw-pb-60 2xl:tw-pb-120 tw-pt-30 md:tw-pt-40">
           <div class="tw-flex tw-flex-wrap -tw-ml-24 md:-tw-mt-6 md:tw-max-w-[720px] 2xl:tw-max-w-[1172px]">
-            <SelectLiter
-              class="tw-ml-24 md:tw-mt-6 tw-basis-full md:tw-basis-[210px]"
-              v-model="filter.liter"
-            />
             <SelectStoreys
               class="tw-ml-24 md:tw-mt-6 tw-basis-full md:tw-basis-[210px]"
               v-model="filter.storey"
@@ -21,15 +17,11 @@
               class="tw-ml-24 md:tw-mt-6 tw-basis-full md:tw-basis-[210px]"
               v-model="filter.square"
             />
-            <SelectFeatures
-              class="tw-ml-24 md:tw-mt-6 tw-basis-full md:tw-basis-[210px]"
-              v-model="filter.features"
-            />
           </div>
         </section>
       </div>
     </div>
-    <section class="tw-bg-white tw-pt-80">
+    <section class="tw-bg-white">
       <div class="wrapper">
         <div :class="{ 'tw-absolute': flats }" v-if="$store.getters['loaders/is']('loading flats')">
           <Spinner size="100px" />
@@ -60,18 +52,12 @@ export default {
     const store = useStore();
 
     const filter = ref({
-      liter: null,
       storey: null,
       rooms: null,
       square: null,
-      features: null
     });
 
     const filterGetters = {
-      liter: (filter, value) => {
-        if(value.length <= 0) return;
-        filter.house_id = value?.[0]?.id
-      },
       storey: (filter, value) => {
         filter.storey_min = value[0];
         filter.storey_max = value[1];
@@ -86,9 +72,6 @@ export default {
         filter.total_area_min = value[0];
         filter.total_area_max = value[1];
       },
-      features: (filter, value) => {
-        Object.values(value).forEach(item => filter[item.value] = 1);
-      }
     }
 
     const flats = ref(null);

@@ -19,7 +19,7 @@
         @click="onInput(room, field, handleChange)"
         class="tw-w-48 tw-h-48 tw-leading-[48px] 2xl:tw-w-[64px] 2xl:tw-h-[64px] 2xl:tw-leading-[64px] tw-rounded-full tw-border tw-text-md rooms"
         :class="{
-          'tw-border-gray tw-bg-white tw-text-secondary': !isActive(room),
+          'tw-border-gray tw-bg-white tw-text-gray': !isActive(room),
           'tw-border-orange tw-bg-orange tw-text-white': isActive(room),
          }"
       >

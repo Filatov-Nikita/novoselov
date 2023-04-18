@@ -13,24 +13,23 @@
           class="tw-pb-6 tw-border-b tw-cursor-pointer tw-block tw-w-full tw-text-left tw-min-h-[50px] tw-relative tw-pr-26"
           :class="{
             'tw-border-negative': errorMessage,
-            'tw-border-white': !errorMessage && !showed,
+            's-b-color': !errorMessage && !showed,
             'tw-border-orange': !errorMessage && showed
           }"
           @click="toggle"
         >
           <div
-            class=" tw-mb-4"
-            :class="[ field.value ? 'tw-text-xs tw-text-secondary tw-leading-120' : 'tw-text-sm tw-text-white tw-leading-140' ]"
+            class="tw-text-gray tw-mb-4"
+            :class="[ field.value ? 'tw-text-xstw-leading-120' : 'tw-text-sm tw-leading-140' ]"
           >
             {{ label }}
           </div>
-          <div class="tw-text-sm" v-html="display(field.value)"></div>
+          <div class="tw-text-sm tw-text-secondary" v-html="display(field.value)"></div>
 
           <svg
-            class="tw-w-18 tw-h-18 tw-absolute tw-right-8 tw-top-14"
+            class="tw-w-18 tw-h-18 tw-absolute tw-right-8 tw-top-14 tw-stroke-gray"
             :class="{
-              'tw-rotate-180 tw-stroke-white': showed,
-              'tw-stroke-secondary ': !showed
+              'tw-rotate-180': showed,
             }"
           >
             <use xlink:href="/sprite.svg#arrow-down"></use>
@@ -116,6 +115,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+.s-b-color {
+  border-color:rgba(47, 66, 88, 0.15);
+}
 </style>
