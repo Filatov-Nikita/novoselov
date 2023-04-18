@@ -1,7 +1,7 @@
 <template>
   <app-page class="xl-separator tw-relative page-pb">
     <div class="wrapper">
-      <h1 class="h1 tw-mb-20 2xl:tw-mb-40">условия покупки</h1>
+      <h1 class="h1 tw-mb-20 md:tw-mb-30 2xl:tw-mb-40">условия покупки</h1>
 
       <div class="2xl:tw-flex tw-items-start">
         <div class="2xl:tw-w-1/2 2xl:tw-pr-[78px]">
@@ -27,13 +27,13 @@
             :name="key"
           >
             <section>
-              <h2 class="tw-text-lg tw-lowercase tw-text-secondary tw-font-extrabold tw-mb-20 2xl:tw-text-xl">
+              <h2 class="tw-text-md tw-text-secondary tw-mb-20 2xl:tw-text-lg">
                 {{ tabs[key].label }}
               </h2>
-              <p class="tw-mb-20 2xl:tw-mb-30" v-if="key === 'tradein'">{{ tradeinTitle }}</p>
+              <p class="tw-mb-20 2xl:tw-mb-30 tw-text-gray" v-if="key === 'tradein'">{{ tradeinTitle }}</p>
               <ul class="2xl:tw-flex 2xl:tw-flex-wrap 2xl:-tw-ml-48 -tw-mt-10">
                 <li
-                  class="tw-text-sm tw-text-white tw-flex list-marker 2xl:tw-w-1/2 2xl:tw-pl-48 tw-pt-10"
+                  class="tw-text-sm tw-text-gray tw-flex list-marker 2xl:tw-w-1/2 2xl:tw-pl-48 tw-pt-10"
                   v-for="(li, i) in content[key]"
                   :key="i"
                   :style="{ '--color': tabs[key].fill }"

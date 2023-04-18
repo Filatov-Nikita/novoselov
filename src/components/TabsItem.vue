@@ -1,16 +1,16 @@
 <template>
   <button
-    class="tw-p-10 tw-flex tw-items-center tw-bg-dark tw-rounded"
+    class="tw-p-10 tw-flex tw-items-center tw-rounded-lg tw-text-white"
     :class="{
-      'tw-text-white tw-bg-opacity-100': active,
-      'tw-text-secondary tw-bg-opacity-0': !active
+      'tw-bg-secondary': active,
+      'tw-bg-[#BEC4CC]': !active
     }"
   >
     <AppIcon
       class="tw-mr-10"
       :name="icon"
       fill="secondary"
-      :fillHex="active ? fill : ''"
+      :fillHex="active ? fill : '#8A98A7'"
       size="30px"
     />
     <span class="tw-text-sm tw-leading-100">{{ label }}</span>
