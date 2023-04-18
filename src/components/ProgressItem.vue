@@ -4,8 +4,8 @@
       <img width="1" height="95" class="tw-h-full tw-w-full tw-object-cover tw-rounded" :src="picSrc" :alt="title" />
     </div>
     <div class="tw-w-full md:tw-max-w-[100px] md:tw-ml-14">
-      <h2 class="tw-mb-2">{{ title }}</h2>
-      <p class="tw-text-xs tw-leading-100 tw-text-secondary">
+      <h2 class="tw-mb-2 tw-text-secondary">{{ title }}</h2>
+      <p class="tw-text-xs tw-leading-100 tw-text-gray">
         {{ picCount }} фото
       </p>
     </div>

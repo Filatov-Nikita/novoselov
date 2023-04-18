@@ -2,7 +2,7 @@
   <app-page class="tw-pb-40 2xl:tw-pb-0 tw-relative">
     <div class="wrapper">
       <div class="grid">
-        <h1 class="h1 tw-mb-20">ход <br class="md:tw-hidden" /> строительства</h1>
+        <h1 class="h1 tw-mb-20">Ход <br class="md:tw-hidden" /> строительства</h1>
 
         <div class="tw-flex tw-flex-wrap tw-space-x-10 tw-mb-20 md:tw-mb-30">
           <button
@@ -144,13 +144,14 @@ export default {
 .tab {
   flex-basis: 66px;
   padding: 5px 16px;
-  background: theme('colors.dark');
-  border-radius: 6px;
+  background: theme('colors.gray');
+  color: theme('colors.white');
+  border-radius: 8px;
   text-align: center;
 }
 
 .tab--active {
-  background: theme('colors.orange');
+  background: theme('colors.secondary');
 }
 
 .gallery-dialog {
