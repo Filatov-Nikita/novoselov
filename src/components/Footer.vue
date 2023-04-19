@@ -76,10 +76,10 @@ export default {
           name: "/sprite.svg#social-whatsapp",
           link: "https://wa.me/73472242041",
         },
-        // {
-        //   name: '#tg',
-        //   link: 'https://wa.me/73472242041'
-        // },
+        {
+          name: '/sprite.svg#social-telegram',
+          link: 'https://telegram.org'
+        },
         {
           name: "/sprite.svg#social-vk",
           link: "https://vk.com/agidelinvest",
