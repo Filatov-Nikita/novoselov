@@ -3,13 +3,14 @@
     <div class="tw-border-b tw-h-[50px] tw-relative tw-flex"
       :class="{
         'tw-border-orange': focused && !errorMessage,
-        'tw-border-white': !focused && !errorMessage,
+        'tw-border-dark-line tw-border-opacity-15': !focused && !errorMessage,
         'tw-border-negative': errorMessage
       }"
     >
       <div class="tw-flex-grow tw-relative">
         <input
           class="tw-block tw-w-full tw-h-full full input"
+          :class="{ 'tw-text-white': !light, 'tw-text-gray': light }"
           :type="type"
           :id="name"
           v-model="value"
@@ -46,6 +47,10 @@ import { computed, ref, toRef, watch } from 'vue';
 export default {
   props: {
     ...Field.props,
+    light: {
+      default: false,
+      type: Boolean
+    },
     type: {
       default: 'text',
       type: String
@@ -100,7 +105,6 @@ export default {
     background: transparent;
     outline: none;
     height: 100%;
-    color: theme('colors.white');
   }
 
   .input::-webkit-outer-spin-button,

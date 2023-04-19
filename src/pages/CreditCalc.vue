@@ -1,10 +1,11 @@
 <template>
   <app-page class="page-pb">
     <div class="wrapper">
-      <h1 class="h1 tw-max-w-[340px] tw-mb-20 md:tw-max-w-full md:tw-mb-40">ИПОТЕЧНЫЙ КАЛЬКУЛЯТОР</h1>
+      <h1 class="h1 tw-max-w-[340px] tw-mb-20 md:tw-max-w-full md:tw-mb-40">Ипотечный калькулятор</h1>
       <form class="tw-mb-30 lg:tw-flex" @submit="submit">
         <div class="md:tw-flex md:tw-flex-wrap md:-tw-ml-30 md:-tw-mt-10 md:tw-basis-full">
           <AppInput
+            light
             :class="[ inputClass ]"
             name="cost"
             label="Стоимость квартиры, руб"
@@ -12,6 +13,7 @@
             v-model="form.cost"
           />
           <AppInput
+            light
             :class="[ inputClass ]"
             name="start"
             label="Первоначальный взнос, руб."
@@ -23,7 +25,7 @@
                 <AppIcon
                   name="attention"
                   size="18px"
-                  :iconClass="showedCaption ? 'tw-stroke-orange tw-fill-orange' : 'tw-stroke-secondary tw-fill-secondary'"
+                  :iconClass="showedCaption ? 'tw-stroke-orange tw-fill-orange' : 'tw-stroke-gray tw-fill-gray'"
                 />
               </button>
             </template>
@@ -32,6 +34,7 @@
             </template>
           </AppInput>
           <AppInput
+            light
             :class="[ inputClass ]"
             name="term"
             label="Срок кредита, лет"
@@ -39,6 +42,7 @@
             v-model="form.period"
           />
           <AppInput
+            light
             :class="[ inputClass ]"
             name="bid"
             label="Ставка, %"
@@ -47,6 +51,7 @@
             v-model="form.percent"
           />
           <AppInput
+            light
             :class="[ inputClass ]"
             disabled
             name="month_cost"
@@ -54,6 +59,7 @@
             v-model="monthCost"
           />
           <AppInput
+            light
             :class="[ inputClass ]"
             disabled
             name="credit_sum"
@@ -67,7 +73,7 @@
           Отправить заявку
         </AppButton>
       </form>
-      <p class="tw-text-secondary tw-mb-40 md:tw-mb-80">{{ caption }}</p>
+      <p class="tw-text-gray tw-mb-40 md:tw-mb-80">{{ caption }}</p>
       <section>
         <div class="tw-inline-flex tw-items-center tw-mb-30 md:tw-mb-20 tw-relative">
           <h2 class="tw-text-lg tw-font-extrabold tw-text-secondary tw-leading-100">
