@@ -7,11 +7,14 @@
         <p
           class="tw-text-lg tw-font-stolz tw-font-normal tw-leading-120 tw-max-w-[280px] md:tw-max-w-full lg:tw-max-w-full tw-mb-10 2xl:tw-text-xl">
           Заявка на ипотеку
-      </p>
+        </p>
         <p
-          class="tw-text-gray tw-font-arial tw-text-md -tw-tracking-sm tw-leading-120 md:tw-max-w-[475px]">
-        Расчет кредита является предварительным, не является публичной офертой
-      </p>
+          class="tw-text-gray tw-font-arial tw-text-md -tw-tracking-sm tw-leading-120">
+          Расчет кредита является <br class="md:tw-hidden" />
+          предварительным, <br />
+          не является публичной <br class="md:tw-hidden" />
+          офертой
+        </p>
       </div>
       <Form v-slot="{ isSubmitting }" @submit="submit" class="lg:tw-grow">
         <div class="tw-flex tw-flex-col md:tw-flex-row md:tw-gap-[22px]">
@@ -53,15 +56,18 @@ export default {
   props: {
     creditSum: {
       required: true,
-      type: Number
-    }
+      type: Number,
+    },
   },
   methods: {
     async submit({ name, cellphone }) {
       const theme = `Заявка на ипотеку (сумма кредита ${this.creditSum} руб)`;
-      await this.$store.dispatch('getFeedback', { name, cellphone, theme });
-      this.$notify({ type: 'success', text: 'Ваша заявка успешно отправлена!' });
-    }
-  }
-}
+      await this.$store.dispatch("getFeedback", { name, cellphone, theme });
+      this.$notify({
+        type: "success",
+        text: "Ваша заявка успешно отправлена!",
+      });
+    },
+  },
+};
 </script>
