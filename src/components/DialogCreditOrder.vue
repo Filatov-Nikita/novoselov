@@ -1,36 +1,37 @@
 <template>
-  <div class="dialog-full callback tw-z-[890] tw-bg-dark" v-if="modelValue">
+  <div class="dialog-full callback tw-z-[890] tw-bg-white" v-if="modelValue">
     <Header />
-    <FormCreditOrder class="tw-flex tw-w-full tw-items-center cover cover--screen" v-bind="{ creditSum }">
-       <button
-          class="tw-absolute tw-right-30 tw-top-20"
-          @click="$emit('update:modelValue', false)"
-        >
-        <AppIcon name="close" size="36px" fill="white" />
+    <FormCreditOrder
+      class="tw-flex tw-w-full tw-items-center"
+      v-bind="{ creditSum }">
+      <button
+        class="tw-absolute tw-right-30 tw-top-20"
+        @click="$emit('update:modelValue', false)">
+        <AppIcon name="close" size="36px" fill="blue" />
       </button>
     </FormCreditOrder>
   </div>
 </template>
 
 <script>
-import FormCreditOrder from './FormCreditOrder.vue';
+import FormCreditOrder from "./FormCreditOrder.vue";
 
 export default {
   props: {
     creditSum: {
       required: true,
-      type: Number
+      type: Number,
     },
     modelValue: {
       default: false,
       type: Boolean,
-    }
+    },
   },
-  emits: ['update:modelValue'],
+  emits: ["update:modelValue"],
   components: {
-    FormCreditOrder
-  }
-}
+    FormCreditOrder,
+  },
+};
 </script>
 
 <style scoped>

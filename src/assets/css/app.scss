@@ -1,10 +1,11 @@
-@import '../fonts/stolz/styles.css';
+@import "../fonts/stolz/styles.css";
+@import "../fonts/misto/styles.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import './cover.scss';
-@import './decor-rock.scss';
+@import "./cover.scss";
+@import "./decor-rock.scss";
 
 @layer base {
   body {
@@ -26,7 +27,7 @@
   }
 
   .h1 {
-    @apply tw-text-lg tw-leading-100 tw-font-normal tw-text-dark tw-font-stolz;
+    @apply tw-text-lg tw-font-extrabold tw-leading-100 tw-lowercase;
   }
 
   .layout-base {
@@ -36,11 +37,11 @@
   }
 
   .page-pt {
-    @apply tw-pt-30
+    @apply tw-pt-30;
   }
 
   .page-pb {
-    @apply tw-pb-40
+    @apply tw-pb-40;
   }
 
   .button-back {
@@ -55,17 +56,19 @@
     width: 1px;
   }
 
-  .app-scroll-x::-webkit-scrollbar-track, .app-scroll-y::-webkit-scrollbar-track {
+  .app-scroll-x::-webkit-scrollbar-track,
+  .app-scroll-y::-webkit-scrollbar-track {
     @apply tw-bg-dark;
   }
 
-  .app-scroll-x::-webkit-scrollbar-thumb, .app-scroll-y::-webkit-scrollbar-thumb {
-    background-image: linear-gradient(90deg, #FD8713 -0.33%, #C83E04 99.48%);
+  .app-scroll-x::-webkit-scrollbar-thumb,
+  .app-scroll-y::-webkit-scrollbar-thumb {
+    background-image: linear-gradient(90deg, #fd8713 -0.33%, #c83e04 99.48%);
     border-radius: 10px;
   }
 
   .list-marker::before {
-    content: '';
+    content: "";
     width: 14px;
     height: 14px;
     margin-right: 13px;
@@ -82,6 +85,10 @@
       padding-right: 34px;
       margin-left: auto;
       margin-right: auto;
+    }
+
+    .h1 {
+      @apply tw-text-xl tw-font-extrabold;
     }
   }
 
@@ -107,15 +114,14 @@
     }
 
     .h1 {
-      @apply tw-text-xl;
+      @apply tw-text-xl10;
     }
 
     .xl-separator::after {
       content: "";
       position: absolute;
       width: 1px;
-      background: theme('colors.dark-line');
-      opacity: 0.15;
+      background: theme("colors.dark");
       height: 100%;
       left: calc(50% - 78px);
       top: 0;
@@ -135,8 +141,7 @@
   letter-spacing: 0.02em;
 }
 
-
 .vue-notification.error {
-  background: theme('colors.negative') !important;
+  background: theme("colors.negative") !important;
   border-left-color: rgb(194, 7, 7) !important;
 }

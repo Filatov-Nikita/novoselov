@@ -1,11 +1,10 @@
 <template>
-  <div class="dialog-full callback tw-z-[910] tw-bg-dark" v-if="showed">
+  <div class="dialog-full callback tw-z-[910] tw-bg-white" v-if="showed">
     <Header />
-    <FormBook class="tw-flex tw-w-full tw-items-center cover cover--screen" v-bind="{ flatNumber }">
+    <FormBook class="tw-flex tw-w-full tw-items-center" v-bind="{ flatNumber }">
       <button
         class="tw-absolute tw-right-30 tw-top-20"
-        @click="$emit('update:showed', false)"
-      >
+        @click="$emit('update:showed', false)">
         <AppIcon name="close" size="36px" fill="white" />
       </button>
     </FormBook>
@@ -13,24 +12,24 @@
 </template>
 
 <script>
-import FormBook from './FormBook.vue';
+import FormBook from "./FormBook.vue";
 
 export default {
   props: {
     showed: {
       default: false,
-      type: Boolean
+      type: Boolean,
     },
     flatNumber: {
       required: true,
-      type: Number
-    }
+      type: Number,
+    },
   },
-  emits: ['update:showed'],
+  emits: ["update:showed"],
   components: {
-    FormBook
-  }
-}
+    FormBook,
+  },
+};
 </script>
 
 <style scoped>

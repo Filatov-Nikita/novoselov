@@ -1,25 +1,26 @@
 <template>
-  <div class="dialog-full callback tw-z-[910] tw-bg-dark" v-if="$store.state.dialogCallbackShowed">
+  <div
+    class="dialog-full callback tw-z-[910] tw-bg-white"
+    v-if="$store.state.dialogCallbackShowed">
     <Header />
-    <FormCallBack class="tw-flex tw-w-full tw-items-center cover cover--screen">
+    <FormCallBack class="tw-flex tw-w-full tw-items-center">
       <button
         class="tw-absolute tw-right-30 tw-top-20"
-        @click="$store.commit('callbackToggle')"
-      >
-        <AppIcon name="close" size="36px" fill="white" />
+        @click="$store.commit('callbackToggle')">
+        <AppIcon name="close" size="36px" fill="blue" />
       </button>
     </FormCallBack>
   </div>
 </template>
 
 <script>
-import FormCallBack from './FormCallBack.vue';
+import FormCallBack from "./FormCallBack.vue";
 
 export default {
   components: {
-    FormCallBack
-  }
-}
+    FormCallBack,
+  },
+};
 </script>
 
 <style scoped>
