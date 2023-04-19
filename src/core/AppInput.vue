@@ -3,7 +3,8 @@
     <div class="tw-border-b tw-h-[50px] tw-relative tw-flex"
       :class="{
         'tw-border-orange': focused && !errorMessage,
-        'tw-border-dark-line tw-border-opacity-15': !focused && !errorMessage,
+        'tw-border-dark-line tw-border-opacity-15': !focused && !errorMessage && light,
+        'tw-border-secondary': !focused && !errorMessage && !light,
         'tw-border-negative': errorMessage
       }"
     >

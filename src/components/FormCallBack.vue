@@ -1,5 +1,5 @@
 <template>
-  <div class="tw-bg-dark tw-rounded-[24px] tw-py-[45px] tw-px-16 md:tw-px-[36px] 2xl:tw-py-[76px] 2xl:tw-px-[145px]">
+  <div class="tw-bg-dark tw-rounded-[24px] tw-py-[45px] tw-px-16 md:tw-px-[36px] 2xl:tw-py-[76px] 2xl:tw-px-[145px] tw-relative">
     <div class="xl:tw-flex 2xl:tw-block">
       <div class="xl:tw-basis-[420px] xl:tw-mr-40 2xl:tw-mr-0">
         <p class="tw-text-lg tw-text-white tw-font-stolz tw-mb-10 2xl:tw-text-xl">

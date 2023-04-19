@@ -9,7 +9,10 @@ module.exports = {
     extend: {
       opacity: {
         '15': '.15'
-      }
+      },
+      borderRadius: {
+        14: "0.875rem",
+      },
     },
     screens: {
       'md': '768px',

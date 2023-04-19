@@ -1,37 +1,47 @@
 <template>
-  <div class="tw-py-40 tw-px-16 md:tw-px-[98px] md:tw-py-80 lg:tw-px-[50px] lg:tw-py-40 2xl:tw-px-[150px] 2xl:tw-py-[50px] tw-bg-dark tw-relative">
-    <div class="tw-max-w-[343px] lg:tw-max-w-[430px] 2xl:tw-max-w-[620px] tw-w-full tw-mx-auto tw-relative tw-z-10">
-      <p class="tw-max-w-[280px] 2xl:tw-max-w-[465px] lg:tw-max-w-full tw-mb-20 tw-text-lg 2xl:tw-text-xl10 tw-leading-[84%] tw-font-extrabold">
-        заявка на&nbsp;бронь
+  <div
+    class="tw-rounded-t-3xl tw-bg-dark tw-text-white tw-py-40 tw-px-16 md:tw-px-[72px] md:tw-py-80 lg:tw-px-40 lg:tw-py-40 2xl:tw-px-[150px] 2xl:tw-py-[50px] tw-relative">
+    <div
+      class="-tw-tracking-sm tw-max-w-[343px] md:tw-max-w-full 2xl:tw-max-w-[620px] tw-w-full tw-mx-auto tw-relative tw-z-10 tw-flex tw-flex-col tw-gap-30 lg:tw-flex-row lg:tw-gap-36 2xl:tw-flex-col 2xl:tw-gap-40">
+      <div class="">
+        <p
+          class="tw-text-lg tw-font-stolz tw-font-normal tw-leading-120 md:tw-max-w-full lg:tw-max-w-full tw-mb-10 2xl:tw-text-xl">
+          Заявка на бронь
       </p>
-      <!-- <p class="tw-text-secondary tw-text-md tw-leading-120 tw-mb-30 2xl:tw-max-w-[430px]">
-        Оставьте заявку, и наши менеджеры свяжутся с вами в&nbsp;течение 30 мин
-      </p> -->
-      <Form v-slot="{ isSubmitting }" @submit="submit">
-        <div class="tw-flex tw-flex-wrap -tw-ml-10">
+        <p
+          class="tw-text-gray tw-font-arial tw-text-md -tw-tracking-sm tw-leading-120 md:tw-max-w-[475px]">
+          Оставьте заявку и наши менеджеры свяжутся с вами в ближайшее время
+        </p>
+      </div>
+      <Form v-slot="{ isSubmitting }" @submit="submit" class="lg:tw-grow">
+        <div class="tw-flex tw-flex-col md:tw-flex-row md:tw-gap-[22px]">
           <AppInput
-            class="tw-pl-10 tw-basis-full lg:tw-basis-1/2 2xl:tw-basis-[210px]"
+            class="tw-basis-full lg:tw-basis-1/2"
             rules="required"
             name="name"
-            label="Ваше имя"
-          />
+            label="Ваше имя" />
           <AppInput
             rules="required|cellphone"
-            class="tw-pl-10 tw-basis-full lg:tw-basis-1/2 2xl:tw-basis-[210px]"
+            class="tw-basis-full lg:tw-basis-1/2"
             name="cellphone"
             label="Номер телефона"
-            type="tel"
-          />
+            type="tel" />
           <AppButton
-            class="tw-ml-[10px] tw-mt-12 2xl:tw-ml-15 tw-basis-full 2xl:tw-basis-[175px] tw-self-start"
+            class="tw-rounded-14 lg:tw-rounded-2xl xl:tw-rounded-14 tw-mt-12 md:tw-mt-0 2xl:tw-ml-15 tw-w-full 2xl:tw-basis-[175px] tw-self-start"
             type="submit"
-            :disabled="isSubmitting"
-          >
+            :disabled="isSubmitting">
             Отправить
           </AppButton>
         </div>
-        <AppCheckbox class="tw-mt-24" name="agreement" label="Условия" rules="required">
-          Я согласен с <AppLink native to="/policy.pdf" target="_blank">условиями передачи информации</AppLink>
+        <AppCheckbox
+          class="tw-mt-24 tw-text-gray"
+          name="agreement"
+          label="Условия"
+          rules="required">
+          Я согласен с
+          <AppLink native to="/policy.pdf" target="_blank" class="tw-text-blue"
+            >условиями передачи информации</AppLink
+          >
         </AppCheckbox>
       </Form>
     </div>

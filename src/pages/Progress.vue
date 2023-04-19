@@ -51,7 +51,7 @@
         class="tw-absolute tw-right-30 tw-top-20"
         @click="showedGallery = null"
       >
-        <AppIcon name="close" size="36px" fill="white" />
+        <AppIcon name="close" size="36px" fill="gray" />
       </button>
       <SwiperGallery :sources="showedGallery" :initialSlide="selectedImage"/>
     </div>
