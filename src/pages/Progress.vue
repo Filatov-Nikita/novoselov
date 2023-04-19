@@ -39,7 +39,7 @@
               :key="image"
               @click="show(showed2xlGallery, index)"
             >
-              <img :src="image" alt="фото из галлереи" />
+              <img class="tw-rounded-lg" :src="image" alt="фото из галлереи" />
             </div>
           </div>
         </div>

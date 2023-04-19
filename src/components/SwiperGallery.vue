@@ -29,7 +29,7 @@
     <swiper-slide v-for="src in sources" :key="src">
       <img
         :data-src="src"
-        class="swiper-lazy tw-w-full tw-h-full tw-object-cover"
+        class="swiper-lazy tw-w-full tw-h-full tw-object-cover tw-rounded-3xl"
       />
       <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
     </swiper-slide>
