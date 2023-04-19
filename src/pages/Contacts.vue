@@ -8,8 +8,10 @@
         <p
           v-if="address"
           class="tw-text-secondary tw-leading-120 tw-text-md tw-mb-20 2xl:tw-text-lg md:tw-max-w-[600px]">
-            {{ address }}
-          </p>
+          <!-- {{ address }} -->
+          Башкортостан, <br />
+          г. Уфа, ул. Новоселов, 10
+        </p>
         <div class="tw-text-gray md:tw-flex md:-tw-mx-20">
           <div class="md:tw-px-20">
             <a
@@ -17,62 +19,62 @@
               :href="`tel:${$store.getters.unmaskedPhone(
                 $store.state.contactPhone
               )}`">
-                {{ $store.state.contactPhone }}
-              </a>
-              <a class="tw-block" href="mailto:grany-ufa@yandex.ru">
-                grani-ufa@yandex.ru
-              </a>
-            </div>
-          <div class="md:tw-px-20" v-html="worktime"></div>
+              {{ $store.state.contactPhone }}
+            </a>
+            <a class="tw-block" href="mailto:grany-ufa@yandex.ru">
+              belierosidomufa@yandex.ru
+            </a>
           </div>
+          <div class="md:tw-px-20" v-html="worktime"></div>
         </div>
+      </div>
       <div
         class="tw-rounded-3xl tw-overflow-hidden tw-h-[276px] md:tw-h-[407px] xl:tw-h-auto contacts-c 2xl:tw-w-full">
-          <yandex-map
+        <yandex-map
           v-if="coords && address"
           class="tw-mix-blend-luminosity tw-relative tw-z-10 tw-h-full tw-w-full"
-            :coords="coords"
-            :zoom="17"
+          :coords="coords"
+          :zoom="17"
           :controls="[]">
-            <ymap-marker
-              marker-id="place"
-              :coords="coords"
+          <ymap-marker
+            marker-id="place"
+            :coords="coords"
             :hint-content="`офис - ${address}`" />
-          </yandex-map>
-        </div>
+        </yandex-map>
+      </div>
       <FormCallBack class="tw-rounded-3xl -tw-mx-16 md:tw-mx-0 contacts-d" />
     </div>
   </app-page>
 </template>
 
 <script>
-import FormCallBack from '@/components/FormCallBack.vue';
-import { mapActions, mapGetters } from 'vuex';
+import FormCallBack from "@/components/FormCallBack.vue";
+import { mapActions, mapGetters } from "vuex";
 
 export default {
   async created() {
-    if(this.address === null) {
+    if (this.address === null) {
       await this.getAddress();
     }
 
-    if(this.coords === null) {
+    if (this.coords === null) {
       await this.getCoords();
     }
 
-    if(this.worktime === null) {
+    if (this.worktime === null) {
       await this.getWorktime();
     }
   },
   computed: {
-    ...mapGetters(['address', 'coords', 'worktime'])
+    ...mapGetters(["address", "coords", "worktime"]),
   },
   methods: {
-    ...mapActions(['getAddress', 'getCoords', 'getWorktime'])
+    ...mapActions(["getAddress", "getCoords", "getWorktime"]),
   },
   components: {
-    FormCallBack
-  }
-}
+    FormCallBack,
+  },
+};
 </script>
 
 <style scoped>

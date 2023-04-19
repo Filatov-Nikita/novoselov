@@ -1,31 +1,39 @@
+.decor-rock::after {
+  content: "";
+  width: 420px;
+  height: 420px;
+  position: absolute;
+  z-index: -1;
+  bottom: 0;
+
+  background-image: url(@/assets/images/figure.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  left: 50%;
+  transform: translateX(-50%);
+  @apply tw-bg-primary;
+}
 @screen md {
   .decor-rock::after {
-    content: '';
-    width: 550px;
-    height: 550px;
-    position: absolute;
-    z-index: -1;
-    bottom: 0;
-    right: 0;
-    background-image: url(@/assets/images/figure.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    @apply tw-bg-primary;
+    width: 690px;
+    height: 690px;
+    left: 0;
+    transform: translateX(-22%);
   }
 }
 
 @screen xl {
   .decor-rock::after {
-    width: 700px;
-    height: 700px;
+    width: 580px;
+    height: 580px;
+    transform: translateX(0%);
   }
 }
 
 @screen 2xl {
   .decor-rock::after {
-    width: 1260px;
-    height: 1260px;
+    width: 720px;
+    height: 720px;
     left: 0;
-    top: -183px;
   }
 }
