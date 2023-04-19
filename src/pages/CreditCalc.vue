@@ -76,14 +76,14 @@
       <p class="tw-text-gray tw-mb-40 md:tw-mb-80">{{ caption }}</p>
       <section>
         <div class="tw-inline-flex tw-items-center tw-mb-30 md:tw-mb-20 tw-relative">
-          <h2 class="tw-text-lg tw-font-extrabold tw-text-secondary tw-leading-100">
-            банки-партнёры
+          <h2 class="tw-text-lg tw-text-secondary tw-leading-100">
+            Банки-партнёры
           </h2>
           <button class="tw-ml-10" @mouseenter="bankPopup = true" @mouseleave="bankPopup = false">
             <AppIcon
               name="attention"
               size="18px"
-              iconClass="tw-stroke-secondary tw-fill-secondary" />
+              iconClass="tw-stroke-secondary tw-fill-blue" />
           </button>
           <div
             v-if="bankPopup"

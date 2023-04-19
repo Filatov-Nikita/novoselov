@@ -4,7 +4,7 @@
       <div class="grid tw-pb-40 2xl:tw-pt-30">
         <div class="md:tw-mt-0 2xl:tw-flex 2xl:-tw-mr-48">
           <div class="2xl:tw-w-1/2">
-            <h1 class="tw-text-lg tw-text-dark tw-mb-30 2xl:tw-text-xl">
+            <h1 class="h1 tw-text-lg tw-text-dark tw-mb-30 2xl:tw-text-xl">
               О проекте
             </h1>
           </div>
@@ -17,15 +17,15 @@
             </p>
             <div class="tw-flex tw-space-x-[50px] 2xl:tw-space-x-[90px]">
               <div>
-                <p class="tw-text-lg tw-mb-4 2xl:tw-text-xl">18</p>
+                <p class="tw-text-lg tw-mb-4 2xl:tw-text-xl tw-font-stolz">18</p>
                 <p class="tw-text-gray">этажей</p>
               </div>
               <div>
-                <p class="tw-text-lg tw-mb-4 2xl:tw-text-xl">2</p>
+                <p class="tw-text-lg tw-mb-4 2xl:tw-text-xl tw-font-stolz">2</p>
                 <p class="tw-text-gray">секций</p>
               </div>
               <div>
-                <p class="tw-text-lg tw-mb-4 2xl:tw-text-xl">276</p>
+                <p class="tw-text-lg tw-mb-4 2xl:tw-text-xl tw-font-stolz">276</p>
                 <p class="tw-text-gray">квартир</p>
               </div>
             </div>
