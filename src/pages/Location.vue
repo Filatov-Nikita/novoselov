@@ -2,7 +2,7 @@
   <app-page class="tw-relative">
     <div class="wrapper xl:tw-h-full xl:tw-flex xl-separator md:tw-pb-[410px] xl:tw-pb-0">
       <div class="xl:tw-w-1/2 md:tw-relative md:tw-z-10">
-        <h1 class="h1 tw-mb-20 2xl:tw-mb-[50px]">расположение</h1>
+        <h1 class="h1 tw-mb-20 2xl:tw-mb-[50px]">Расположение</h1>
           <div
             class="tw-flex tw-overflow-x-auto app-scroll-x tw-pb-20 tw-mb-20 -tw-ml-20 md:tw-max-w-[700px] md:-tw-mt-16 md:tw-flex-wrap xl:tw-max-w-[450px] xl:-tw-mt-10 xl:-tw-ml-30"
           >

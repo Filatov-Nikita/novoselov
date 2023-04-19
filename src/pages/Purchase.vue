@@ -1,7 +1,7 @@
 <template>
   <app-page class="xl-separator tw-relative page-pb">
     <div class="wrapper">
-      <h1 class="h1 tw-mb-20 md:tw-mb-30 2xl:tw-mb-40">условия покупки</h1>
+      <h1 class="h1 tw-mb-20 md:tw-mb-30 2xl:tw-mb-40">Условия покупки</h1>
 
       <div class="2xl:tw-flex tw-items-start">
         <div class="2xl:tw-w-1/2 2xl:tw-pr-[78px]">
