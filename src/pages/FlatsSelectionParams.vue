@@ -27,7 +27,7 @@
           <Spinner size="100px" />
         </div>
         <template v-if="flats">
-          <p class="lg:tw-text-lg tw-text-md lg:tw-font-extrabold tw-text-secondary tw-leading-100 tw-mb-30">
+          <p class="lg:tw-text-lg tw-text-md tw-text-secondary tw-leading-100 tw-mb-30">
             Найдено {{ flats.length }} квартир
           </p>
           <FlatsParamsList :items="flats" />

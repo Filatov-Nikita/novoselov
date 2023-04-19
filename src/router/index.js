@@ -114,7 +114,6 @@ const routes = [
   {
     path: '/contacts',
     component: () => import('@/layouts/PrimaryLayout.vue'),
-    props: { decor: true },
     children: [
       {
         path: '',
