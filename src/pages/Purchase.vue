@@ -68,13 +68,13 @@ export default {
         calc: {
           label: 'Ипотека',
           icon: 'calc',
-          fill: '#23CF49',
+          fill: '#3AB2ED',
           class: '2xl:-tw-order-4 2xl:tw-basis-[160px]'
         },
         bank: {
           label: 'Рассрочка',
           icon: 'bank',
-          fill: '#3AB2ED',
+          fill: '#9BA5B0',
           class: '2xl:tw-basis-[160px]'
         },
         rub: {
@@ -92,7 +92,7 @@ export default {
         tradein: {
           label: 'Трейд-Ин',
           icon: 'tradein',
-          fill: '#FFB22B',
+          fill: '#FBB03B',
           class: '2xl:tw-basis-[160px]'
         },
       },
