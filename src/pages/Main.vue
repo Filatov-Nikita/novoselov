@@ -63,13 +63,13 @@ import { GDialog } from 'gitart-vue-dialog';
 import { mapGetters, mapActions } from 'vuex';
 
 export default {
-  async created() {
-    if(!this.hasBanners) await this.getBanners();
-    if(this.hasBanners && !this.bannerWasShown) {
-      this.showedBanners = true;
-      this.$store.commit('setBannerWasShown', true);
-    }
-  },
+  // async created() {
+  //   if(!this.hasBanners) await this.getBanners();
+  //   if(this.hasBanners && !this.bannerWasShown) {
+  //     this.showedBanners = true;
+  //     this.$store.commit('setBannerWasShown', true);
+  //   }
+  // },
   mounted() {
     this.start();
   },
@@ -82,11 +82,39 @@ export default {
       slides: [
         {
           text: 'Старт продаж квартир <br class="md:tw-hidden lg:tw-block"> в&nbsp;новом доме',
-          image: require('@/assets/images/main/home.png'),
+          image: require('@/assets/images/main/home.jpg'),
         },
         {
-          text: 'Старт продаж квартир -&nbsp;это здорово!',
-          image: require('@/assets/images/main/render-1.jpg'),
+          text: 'Старт продаж квартир <br class="md:tw-hidden lg:tw-block"> в&nbsp;новом доме',
+          image: require('@/assets/images/main/r1.jpg'),
+        },
+        {
+          text: 'Старт продаж квартир <br class="md:tw-hidden lg:tw-block"> в&nbsp;новом доме',
+          image: require('@/assets/images/main/r3.jpg'),
+        },
+        {
+          text: 'Старт продаж квартир <br class="md:tw-hidden lg:tw-block"> в&nbsp;новом доме',
+          image: require('@/assets/images/main/r4.jpg'),
+        },
+        {
+          text: 'Старт продаж квартир <br class="md:tw-hidden lg:tw-block"> в&nbsp;новом доме',
+          image: require('@/assets/images/main/r5.jpg'),
+        },
+        {
+          text: 'Старт продаж квартир <br class="md:tw-hidden lg:tw-block"> в&nbsp;новом доме',
+          image: require('@/assets/images/main/r6.jpg'),
+        },
+        {
+          text: 'Старт продаж квартир <br class="md:tw-hidden lg:tw-block"> в&nbsp;новом доме',
+          image: require('@/assets/images/main/r7.jpg'),
+        },
+        {
+          text: 'Старт продаж квартир <br class="md:tw-hidden lg:tw-block"> в&nbsp;новом доме',
+          image: require('@/assets/images/main/r8.jpg'),
+        },
+        {
+          text: 'Старт продаж квартир <br class="md:tw-hidden lg:tw-block"> в&nbsp;новом доме',
+          image: require('@/assets/images/main/r9.jpg'),
         },
       ]
     }
