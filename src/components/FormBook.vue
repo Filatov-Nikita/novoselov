@@ -37,7 +37,9 @@
           class="tw-mt-24 tw-text-gray"
           name="agreement"
           label="Условия"
-          rules="required">
+          rules="required"
+          :value="true"
+        >
           Я согласен с
           <AppLink native to="/policy.pdf" target="_blank" class="tw-text-blue"
             >условиями передачи информации</AppLink

@@ -18,6 +18,7 @@
           v-bind="type === 'number' ? { ...listeners, step: '0.1' } : listeners"
           :disabled="disabled"
           v-maska="type === 'tel' ? '+7 (9##) ###-##-##' : ''"
+          :readonly="readOnly"
         >
         <label :for="name" class="label" :class="{ 'dirty': hasValue }">{{ label }}</label>
       </div>
@@ -57,6 +58,10 @@ export default {
       type: String
     },
     disabled: {
+      default: false,
+      type: Boolean
+    },
+    readOnly: {
       default: false,
       type: Boolean
     },

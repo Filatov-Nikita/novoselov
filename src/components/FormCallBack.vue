@@ -32,7 +32,7 @@
             Отправить
           </AppButton>
         </div>
-        <AppCheckbox class="tw-mt-30 tw-text-gray tw-text-xs md:tw-mt-10 xl:tw-mt-25" name="agreement" label="Условия" rules="required">
+        <AppCheckbox class="tw-mt-30 tw-text-gray tw-text-xs md:tw-mt-10 xl:tw-mt-25" name="agreement" label="Условия" rules="required" :value="true">
           Я согласен с <AppLink native to="/policy.pdf" target="_blank">условиями передачи информации</AppLink>
         </AppCheckbox>
       </Form>

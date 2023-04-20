@@ -112,7 +112,7 @@ export default {
       homePoint: {
         id: 0,
         category: 'home',
-        coords: [54.783985, 56.118924],
+        coords: [54.784016, 56.120019],
         name: 'Жилой комплекс "Новоселов"',
       }
     }

@@ -56,17 +56,19 @@
           <AppInput
             light
             :class="[inputClass]"
-            disabled
             name="month_cost"
             label="Ежемесячный платёж, руб"
-            v-model="monthCost" />
+            v-model="monthCost"
+            readOnly
+          />
           <AppInput
             light
             :class="[inputClass]"
-            disabled
             name="credit_sum"
             label="Сумма кредита, руб"
-            v-model="creditSum" />
+            v-model="creditSum"
+            readOnly
+          />
         </div>
         <AppButton
           class="tw-w-full tw-mt-10 md:tw-w-auto lg:tw-ml-30 lg:tw-basis-[200px] lg:tw-mb-20 tw-shrink-0 lg:tw-self-end"
