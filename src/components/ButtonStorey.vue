@@ -1,5 +1,7 @@
 <template>
-  <button class="btn-storey" :class="{ 'btn-storey--active': active, 'btn-storey--disabled': disabled }">
+  <button
+    class="btn-storey"
+    :class="{ 'btn-storey--active': active, 'btn-storey--disabled': disabled }">
     {{ label }}
   </button>
 </template>
@@ -9,18 +11,18 @@ export default {
   props: {
     label: {
       required: true,
-      type: [String, Number]
+      type: [String, Number],
     },
     disabled: {
       default: false,
-      type: Boolean
+      type: Boolean,
     },
     active: {
       default: false,
-      type: Boolean
-    }
-  }
-}
+      type: Boolean,
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -29,8 +31,8 @@ export default {
   height: 30px;
   line-height: 30px;
   border-radius: 50%;
-  font-family: nexa-reg;
-  @apply tw-border tw-border-gray tw-inline-block tw-text-xs tw-text-center;
+
+  @apply tw-border tw-border-gray tw-text-gray tw-inline-block tw-text-xs tw-text-center;
 }
 
 .btn-storey:hover {
@@ -38,11 +40,11 @@ export default {
 }
 
 .btn-storey--disabled {
-  @apply tw-border-secondary tw-text-secondary;
+  @apply tw-border-secondary/15 tw-text-secondary/15;
 }
 
 .btn-storey--active {
-  @apply tw-bg-orange tw-border-orange tw-text-white;
+  @apply tw-bg-secondary tw-border-secondary tw-text-white;
 }
 
 .btn-storey--active:hover {
