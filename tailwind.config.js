@@ -83,5 +83,23 @@ module.exports = {
       'arial': ['Arial', 'sans-serif'],
     }
   },
-  plugins: [],
-}
+  plugins: [
+    function ({ addComponents }) {
+      addComponents({
+        ".container": {
+          maxWidth: "100%",
+          padding: "0 16px",
+          marginRight: "auto",
+          marginLeft: "auto",
+          "@screen md": {
+            padding: "0 35px",
+          },
+          "@screen lg": {
+            maxWidth: "1920px",
+            padding: "0 40px",
+          },
+        },
+      });
+    },
+  ],
+};

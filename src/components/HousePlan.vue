@@ -9,6 +9,9 @@
       width: 100%;
     ">
     <img :src="image" style="height: 100%; max-width: none; width: auto" />
+
+    <!-- id:1 -->
+    <!-- id:2 -->
     <svg
       style="
         height: 100%;
@@ -24,22 +27,22 @@
       <path
         v-for="(path, i) in paths.first"
         :key="i"
-        :opacity="activeD === path ? 0.65: 0"
+        :opacity="activeD === path ? 0.65 : 0"
         :d="path"
         fill="#FBB03B"
-        @click="onClick"
-        @mouseenter="onEnter"
-        @mouseleave="onLeave" />
-      <path
+        @click="onClick($event, i + 1)"
+        @mouseenter="onEnter($event, i + 1)"
+        @mouseleave="onLeave($event, i + 1)" />
+    </svg>
+    <!-- <path
         v-for="(path, i) in paths.second"
         :key="i"
-        :opacity="activeD === path ? 0.65: 0"
+        :opacity="activeD === path ? 0.65 : 0"
         :d="path"
         fill="#FBB03B"
-        @click="onClick"
+        @click="onClick($event, i)"
         @mouseenter="onEnter"
-        @mouseleave="onLeave" />
-    </svg>
+        @mouseleave="onLeave" /> -->
 
     <!-- <svg
       style="
@@ -115,27 +118,36 @@ export default {
     },
   },
   emits: ["enter", "leave"],
-  data(){
+  data() {
     return {
-      activeD: ''
-    }
+      activeD: "",
+    };
   },
   methods: {
-    onClick (e){
-        
-      if(e.target?.getAttribute('d')){
-        this.activeD = e.target?.getAttribute('d')
+    onClick(e, id) {
+      console.log(id);
+      if (e.target?.getAttribute("d")) {
+        this.activeD = e.target?.getAttribute("d");
+        if (this.tappable && this.activeStorey?.id !== id) {
+          return this.$emit("enter", id);
+        }
+        this.$router.push({ name: "storey", params: { id: id } });
       }
     },
-    onEnter(e){
-      if(e.target?.getAttribute('d')){
-        this.activeD = e.target?.getAttribute('d')
+    onEnter(e, id) {
+      if (e.target?.getAttribute("d")) {
+        if (!this.tappable) {
+          this.activeD = e.target?.getAttribute("d");
+          return this.$emit("enter", id);
+        }
       }
     },
-    onLeave(e){
-      this.activeD = ''
-      
-    }
+    onLeave(e, id) {
+      if (!this.tappable) {
+        this.activeD = "";
+        return this.$emit("leave", id);
+      }
+    },
     // onClick(storey) {
     //   if (this.tappable && this.activeStorey?.id !== storey.id) {
     //     return this.$emit("enter", storey.id);

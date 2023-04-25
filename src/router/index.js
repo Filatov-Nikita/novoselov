@@ -16,9 +16,6 @@ const routes = [
         path: '',
         name: 'flats.params',
         component: () => import('@/pages/FlatsSelectionParams.vue'),
-        beforeEnter(to, from, next) {
-
-        }
       },
       {
         path: ':id',

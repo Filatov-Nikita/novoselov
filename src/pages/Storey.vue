@@ -1,45 +1,193 @@
 <template>
-  <app-page class="lg:tw-pt-0">
-    <div class="wrapper">
-      <div v-if="!imageMap && $store.getters['loaders/is']('loading storeys')" class="tw-absolute">
-        <Spinner class="tw-absolute"  size="100px" />
+  <app-page class="tw-pb-40 lg:tw-py-0">
+    <div class="tw-container">
+      <div
+        v-if="!imageMap && $store.getters['loaders/is']('loading storeys')"
+        class="tw-absolute">
+        <Spinner class="tw-absolute" size="100px" />
       </div>
-      <div class="content">
-        <div class="first tw-mb-20 lg:tw-mb-0 lg:tw-border-r lg:tw-border-dark lg:tw-pl-30 lg:tw-pr-16 lg:tw-py-30">
-          <router-link class="button-back" :to="{ name: 'facad.house' }">
-            Назад к фасаду
-          </router-link>
-          <div class="tw-hidden tw-text-xl tw-font-extrabold tw-leading-100 tw-mt-20 lg:tw-block" v-if="showedFlat">
-            №{{ showedFlat.number }}
+      <div class="content" v-else>
+        <div class="first lg:tw-flex 2xl:tw-block tw-gap-[33px] lg:tw-pt-30">
+          <div>
+            <router-link
+              class="tw-underline tw-text-gray tw-block tw-mb-30 md:tw-mb-40 lg:tw-mb-20"
+              :to="{ name: 'facad.house' }">
+              Назад к фасаду
+            </router-link>
+            <div class="2xl:tw-grid 2xl:tw-place-content-center">
+              <div
+                class="tw-text-lg tw-leading-120 tw-font-stolz tw-mb-20 md:tw-mb-40 lg:tw-hidden 2xl:tw-block">
+                Подъезд {{ storey.entrance }},
+                <br class="md:tw-hidden lg:tw-block" />
+                этаж {{ storey.number }}
+              </div>
+              <div>
+                <div
+                  class="tw-hidden lg:tw-block tw-w-[70px] tw-text-center tw-text-secondary tw-h-20 tw-mb-20">
+                  этаж
+                </div>
+                <div class="tw-flex tw-flex-wrap tw-gap-10 lg:tw-w-[70px]">
+                  <div class="" v-for="storey in storeys" :key="storey.id">
+                    <ButtonStorey
+                      :label="storey.value"
+                      :active="isActive(storey.id)"
+                      @click="changeStorey(storey.id)" />
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="tw-overflow-y-hidden app-scroll-x tw-relative second tw-mb-30 lg:tw-mb-0 lg:tw-py-30">
-          <div class="tw-hidden lg:tw-block tw-w-[70px] tw-text-center tw-text-secondary tw-h-20 tw-mb-20">
-            этаж
-          </div>
-          <div class="tw-flex tw-flex-wrap tw-w-[560px] tw-pb-20 -tw-ml-10 -tw-mt-10 lg:-tw-ml-[5px] lg:-tw-mt-[5px] lg:tw-w-[70px]">
+          <div>
             <div
-              class="tw-pl-10 tw-pt-10 lg:tw-pl-[5px] lg:tw-pt-[5px]"
-              v-for="storey in storeys"
-              :key="storey.id"
-            >
-              <ButtonStorey
-                :label="storey.value"
-                :active="isActive(storey.id)"
-                @click="changeStorey(storey.id)"
-              />
+              class="tw-text-lg tw-leading-120 tw-font-stolz tw-mb-20 md:tw-mb-40 tw-hidden lg:tw-block 2xl:tw-hidden">
+              Подъезд 1, <br class="2xl:tw-hidden" />
+              этаж 15
             </div>
           </div>
         </div>
-        <div
-          class="third -tw-mx-16 md:tw-mx-0 lg:tw-py-30"
-          v-if="storey && imageMap"
-        >
+
+        <div class="map" v-if="storey && imageMap">
           <StoreyPlan
-            class="tw-pt-40 tw-pb-20 tw-h-full lg:tw-pb-40"
+            class=""
             :imageMap="imageMap"
-            @update:showed="showedFlat = $event"
-          />
+            @update:showed="showedFlat = $event" />
+        </div>
+        <div class="last">
+          <svg
+            width="76"
+            height="50"
+            viewBox="0 0 76 50"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M42.3241 42.3241C32.7563 51.892 17.2437 51.892 7.67588 42.3241C-1.89196 32.7563 -1.89196 17.2437 7.67588 7.67588C17.2437 -1.89196 32.7563 -1.89196 42.3241 7.67588C51.892 17.2437 51.892 32.7563 42.3241 42.3241Z"
+              stroke="#9BA5B0" />
+            <path
+              d="M37.5473 24.3859C30.6384 21.936 16.7614 16.9748 16.5245 16.7298L14.1557 16.1173L22.4464 24.6922L15.044 33.5733L36.659 25.3047L37.5473 24.3859Z"
+              fill="#9BA5B0" />
+            <path
+              d="M13.23 34.7602C13.0827 34.6079 13 34.4014 13 34.186C13 33.9706 13.0827 33.7641 13.23 33.6118L21.5577 24.9987L13.23 16.3855C13.1039 16.2548 13.0246 16.0834 13.0053 15.8998C12.986 15.7162 13.0278 15.5313 13.1238 15.3755C13.2198 15.2198 13.3642 15.1026 13.5333 15.0432C13.7024 14.9837 13.886 14.9857 14.0539 15.0488L38.4817 24.2361C38.6336 24.2929 38.7648 24.3966 38.8575 24.5333C38.9502 24.6699 39 24.8328 39 24.9998C39 25.1668 38.9502 25.3297 38.8575 25.4663C38.7648 25.603 38.6336 25.7067 38.4817 25.7635L14.0539 34.9508C13.9134 35.0038 13.7613 35.0142 13.6154 34.9809C13.4694 34.9475 13.3357 34.8717 13.23 34.7625L13.23 34.7602ZM16.8431 17.8256L23.2232 24.4244C23.3704 24.5767 23.4532 24.7833 23.4532 24.9987C23.4532 25.214 23.3704 25.4206 23.2232 25.5729L16.8431 32.1717L35.9157 24.9975L16.8431 17.8233V17.8256Z"
+              fill="#9BA5B0" />
+            <circle cx="66" cy="25" r="9.5" fill="#C5EAFF" stroke="#C5EAFF" />
+            <path
+              d="M66.5179 28.1324C65.8859 28.1324 65.3299 28.0044 64.8499 27.7484C64.3699 27.4924 63.9979 27.1324 63.7339 26.6684C63.4779 26.1964 63.3499 25.6524 63.3499 25.0364C63.3499 24.4284 63.4819 23.8924 63.7459 23.4284C64.0099 22.9564 64.3779 22.5924 64.8499 22.3364C65.3299 22.0724 65.8819 21.9404 66.5059 21.9404C67.3699 21.9404 68.1179 22.2444 68.7499 22.8524L67.9339 23.7284C67.7579 23.5524 67.5459 23.4164 67.2979 23.3204C67.0499 23.2164 66.7939 23.1644 66.5299 23.1644C65.9859 23.1644 65.5419 23.3404 65.1979 23.6924C64.8619 24.0364 64.6939 24.4844 64.6939 25.0364C64.6939 25.5964 64.8619 26.0484 65.1979 26.3924C65.5419 26.7364 65.9859 26.9084 66.5299 26.9084C66.8179 26.9084 67.0899 26.8564 67.3459 26.7524C67.6019 26.6484 67.8179 26.4964 67.9939 26.2964L68.8219 27.1964C68.4939 27.5164 68.1419 27.7524 67.7659 27.9044C67.3899 28.0564 66.9739 28.1324 66.5179 28.1324Z"
+              fill="#2F4258" />
+          </svg>
+          <svg
+            v-if="storey.entrance == 1"
+            width="54"
+            height="98"
+            viewBox="0 0 54 98"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <rect
+              x="47"
+              y="35"
+              width="6"
+              height="31"
+              rx="1"
+              fill="#B8C6D6"
+              fill-opacity="0.4"
+              stroke="#2F4258"
+              stroke-opacity="0.15" />
+            <path
+              d="M43 3.17818C44.8856 3.17818 45.8284 3.17818 46.4142 3.76397C47 4.34975 47 5.29256 47 7.17818L47 16C47 17.8856 47 18.8284 46.4142 19.4142C45.8284 20 44.8856 20 43 20L30.1007 20C29.8295 20 29.6098 19.7802 29.6098 19.5091C29.6098 19.238 29.39 19.0182 29.1188 19.0182L5 19.0182C3.11438 19.0182 2.17157 19.0182 1.58578 18.4324C0.999999 17.8466 0.999999 16.9038 0.999999 15.0182L1 6C1 4.11438 1 3.17157 1.58578 2.58578C2.17157 2 3.11438 2 5 2L17.5207 2C17.846 2 18.1098 2.26374 18.1098 2.58909C18.1098 2.91444 18.3735 3.17818 18.6988 3.17818L43 3.17818Z"
+              fill="#F5F5F5"
+              stroke="#9BA5B0" />
+            <path
+              d="M43 81.1108C44.8856 81.1108 45.8284 81.1108 46.4142 81.6966C47 82.2824 47 83.2252 47 85.1108L47 93C47 94.8856 47 95.8284 46.4142 96.4142C45.8284 97 44.8856 97 43 97L30.0726 97C29.817 97 29.6098 96.7928 29.6098 96.5372C29.6098 96.2816 29.4025 96.0743 29.1469 96.0743L5 96.0743C3.11438 96.0743 2.17157 96.0743 1.58578 95.4886C0.999999 94.9028 0.999999 93.96 0.999999 92.0743L1 84C1 82.1144 1 81.1716 1.58578 80.5858C2.17157 80 3.11438 80 5 80L17.5544 80C17.8611 80 18.1098 80.2487 18.1098 80.5554C18.1098 80.8621 18.3584 81.1108 18.6652 81.1108L43 81.1108Z"
+              fill="#F5F5F5"
+              stroke="#9BA5B0" />
+            <path
+              d="M43 43.1108C44.8856 43.1108 45.8284 43.1108 46.4142 43.6966C47 44.2824 47 45.2252 47 47.1108L47 55C47 56.8856 47 57.8284 46.4142 58.4142C45.8284 59 44.8856 59 43 59L30.0726 59C29.817 59 29.6098 58.7928 29.6098 58.5372C29.6098 58.2816 29.4025 58.0743 29.1469 58.0743L5 58.0743C3.11438 58.0743 2.17157 58.0743 1.58578 57.4886C0.999999 56.9028 0.999999 55.96 0.999999 54.0743L1 46C1 44.1144 1 43.1716 1.58578 42.5858C2.17157 42 3.11438 42 5 42L17.5544 42C17.8611 42 18.1098 42.2487 18.1098 42.5554C18.1098 42.8621 18.3584 43.1108 18.6652 43.1108L43 43.1108Z"
+              fill="#F5F5F5"
+              stroke="#3AB2ED" />
+            <path
+              d="M24 43.1108L18.6733 43.1108C18.3621 43.1108 18.1098 42.8621 18.1098 42.5554C18.1098 42.2487 17.8574 42 17.5462 42L3.875 42C2.51971 42 1.84207 42 1.42103 42.4149C1 42.8299 1 43.4977 1 44.8333L0.999999 55.241C0.999999 56.5766 0.999999 57.2445 1.42103 57.6594C1.84207 58.0743 2.51971 58.0743 3.87499 58.0743L24 58.0743L24 43.1108Z"
+              fill="#3AB2ED"
+              fill-opacity="0.48" />
+            <path
+              d="M11.8066 50.9502L12.5644 51.1416C12.4055 51.764 12.1191 52.2393 11.705 52.5674C11.2935 52.8929 10.7896 53.0557 10.1933 53.0557C9.57609 53.0557 9.07349 52.9307 8.68547 52.6807C8.30005 52.4281 8.00578 52.0635 7.80266 51.5869C7.60214 51.1104 7.50187 50.5986 7.50187 50.0518C7.50187 49.4554 7.61516 48.9359 7.84172 48.4932C8.07089 48.0479 8.3951 47.7106 8.81437 47.4814C9.23625 47.2497 9.69979 47.1338 10.205 47.1338C10.7779 47.1338 11.2597 47.2796 11.6503 47.5713C12.0409 47.863 12.3131 48.2731 12.4667 48.8018L11.7206 48.9775C11.5878 48.5609 11.3951 48.2575 11.1425 48.0674C10.8899 47.8773 10.5722 47.7822 10.1894 47.7822C9.74927 47.7822 9.38078 47.8877 9.08391 48.0986C8.78964 48.3096 8.5826 48.5934 8.46281 48.9502C8.34302 49.3044 8.28312 49.6702 8.28312 50.0479C8.28312 50.5348 8.35344 50.9606 8.49406 51.3252C8.63729 51.6872 8.85865 51.958 9.15812 52.1377C9.4576 52.3174 9.78182 52.4072 10.1308 52.4072C10.5553 52.4072 10.9146 52.2848 11.2089 52.04C11.5032 51.7952 11.7024 51.432 11.8066 50.9502ZM15.7052 52.958L15.002 52.958L15.002 48.4775C14.8328 48.639 14.6101 48.8005 14.3341 48.9619C14.0606 49.1234 13.8145 49.2445 13.5958 49.3252L13.5958 48.6455C13.989 48.4606 14.3328 48.2367 14.627 47.9736C14.9213 47.7106 15.1296 47.4554 15.252 47.208L15.7052 47.208L15.7052 52.958Z"
+              fill="#F5F5F5" />
+            <rect
+              x="47"
+              y="1"
+              width="6"
+              height="31"
+              rx="1"
+              fill="#B8C6D6"
+              fill-opacity="0.4"
+              stroke="#2F4258"
+              stroke-opacity="0.15" />
+            <rect
+              x="47"
+              y="69"
+              width="6"
+              height="26"
+              rx="1"
+              fill="#B8C6D6"
+              fill-opacity="0.4"
+              stroke="#2F4258"
+              stroke-opacity="0.15" />
+          </svg>
+
+          <svg
+            v-else
+            xmlns="http://www.w3.org/2000/svg"
+            width="54"
+            height="98"
+            viewBox="0 0 54 98"
+            fill="none">
+            <rect
+              x="47"
+              y="35"
+              width="6"
+              height="31"
+              rx="1"
+              fill="#B8C6D6"
+              fill-opacity="0.4"
+              stroke="#2F4258"
+              stroke-opacity="0.15" />
+            <path
+              d="M43 3.17818C44.8856 3.17818 45.8284 3.17818 46.4142 3.76397C47 4.34975 47 5.29256 47 7.17818L47 16C47 17.8856 47 18.8284 46.4142 19.4142C45.8284 20 44.8856 20 43 20L30.1007 20C29.8295 20 29.6098 19.7802 29.6098 19.5091C29.6098 19.238 29.39 19.0182 29.1188 19.0182L5 19.0182C3.11438 19.0182 2.17157 19.0182 1.58578 18.4324C0.999999 17.8466 0.999999 16.9038 0.999999 15.0182L1 6C1 4.11438 1 3.17157 1.58578 2.58578C2.17157 2 3.11438 2 5 2L17.5207 2C17.846 2 18.1098 2.26374 18.1098 2.58909C18.1098 2.91444 18.3735 3.17818 18.6988 3.17818L43 3.17818Z"
+              fill="#F5F5F5"
+              stroke="#9BA5B0" />
+            <path
+              d="M43 81.1108C44.8856 81.1108 45.8284 81.1108 46.4142 81.6966C47 82.2824 47 83.2252 47 85.1108L47 93C47 94.8856 47 95.8284 46.4142 96.4142C45.8284 97 44.8856 97 43 97L30.0726 97C29.817 97 29.6098 96.7928 29.6098 96.5372C29.6098 96.2816 29.4025 96.0743 29.1469 96.0743L5 96.0743C3.11438 96.0743 2.17157 96.0743 1.58578 95.4886C0.999999 94.9028 0.999999 93.96 0.999999 92.0743L1 84C1 82.1144 1 81.1716 1.58578 80.5858C2.17157 80 3.11438 80 5 80L17.5544 80C17.8611 80 18.1098 80.2487 18.1098 80.5554C18.1098 80.8621 18.3584 81.1108 18.6652 81.1108L43 81.1108Z"
+              fill="#F5F5F5"
+              stroke="#9BA5B0" />
+            <path
+              d="M43 43.1108C44.8856 43.1108 45.8284 43.1108 46.4142 43.6966C47 44.2824 47 45.2252 47 47.1108L47 55C47 56.8856 47 57.8284 46.4142 58.4142C45.8284 59 44.8856 59 43 59L30.0726 59C29.817 59 29.6098 58.7928 29.6098 58.5372C29.6098 58.2816 29.4025 58.0743 29.1469 58.0743L5 58.0743C3.11438 58.0743 2.17157 58.0743 1.58578 57.4886C0.999999 56.9028 0.999999 55.96 0.999999 54.0743L1 46C1 44.1144 1 43.1716 1.58578 42.5858C2.17157 42 3.11438 42 5 42L17.5544 42C17.8611 42 18.1098 42.2487 18.1098 42.5554C18.1098 42.8621 18.3584 43.1108 18.6652 43.1108L43 43.1108Z"
+              fill="#F5F5F5"
+              stroke="#3AB2ED" />
+            <path
+              d="M46.579 43.1229C46.1579 42.708 45.4803 42.708 44.125 42.708L24 42.708L24 57.6715L29.1401 57.6715C29.3995 57.6715 29.6098 57.8788 29.6098 58.1344C29.6098 58.39 29.82 58.5972 30.0794 58.5972L44.125 58.5972C45.4803 58.5972 46.1579 58.5972 46.579 58.1823C47 57.7673 47 57.0995 47 55.7639L47 45.5413C47 44.2057 47 43.5379 46.579 43.1229Z"
+              fill="#3AB2ED"
+              fill-opacity="0.48" />
+            <path
+              d="M34.8066 50.9502L35.5644 51.1416C35.4055 51.764 35.1191 52.2393 34.705 52.5674C34.2935 52.8929 33.7896 53.0557 33.1933 53.0557C32.5761 53.0557 32.0735 52.9307 31.6855 52.6807C31.3001 52.4281 31.0058 52.0635 30.8027 51.5869C30.6021 51.1104 30.5019 50.5986 30.5019 50.0518C30.5019 49.4554 30.6152 48.9359 30.8417 48.4932C31.0709 48.0479 31.3951 47.7106 31.8144 47.4814C32.2362 47.2497 32.6998 47.1338 33.205 47.1338C33.7779 47.1338 34.2597 47.2796 34.6503 47.5713C35.0409 47.863 35.3131 48.2731 35.4667 48.8018L34.7206 48.9775C34.5878 48.5609 34.3951 48.2575 34.1425 48.0674C33.8899 47.8773 33.5722 47.7822 33.1894 47.7822C32.7493 47.7822 32.3808 47.8877 32.0839 48.0986C31.7896 48.3096 31.5826 48.5934 31.4628 48.9502C31.343 49.3044 31.2831 49.6702 31.2831 50.0479C31.2831 50.5348 31.3534 50.9606 31.4941 51.3252C31.6373 51.6872 31.8586 51.958 32.1581 52.1377C32.4576 52.3174 32.7818 52.4072 33.1308 52.4072C33.5553 52.4072 33.9146 52.2848 34.2089 52.04C34.5032 51.7952 34.7024 51.432 34.8066 50.9502ZM39.752 52.2822L39.752 52.958L35.9669 52.958C35.9617 52.7887 35.989 52.626 36.0489 52.4697C36.1453 52.2119 36.2989 51.958 36.5098 51.708C36.7234 51.458 37.0307 51.1689 37.4317 50.8408C38.0541 50.3304 38.4747 49.9268 38.6934 49.6299C38.9122 49.3304 39.0216 49.0479 39.0216 48.7822C39.0216 48.5036 38.9213 48.2692 38.7208 48.0791C38.5229 47.8864 38.2638 47.79 37.9434 47.79C37.6049 47.79 37.3341 47.8916 37.1309 48.0947C36.9278 48.2979 36.8249 48.5791 36.8223 48.9385L36.0997 48.8643C36.1492 48.3252 36.3354 47.915 36.6583 47.6338C36.9812 47.3499 37.4148 47.208 37.9591 47.208C38.5085 47.208 38.9434 47.3604 39.2638 47.665C39.5841 47.9697 39.7442 48.3473 39.7442 48.7979C39.7442 49.027 39.6973 49.2523 39.6036 49.4736C39.5098 49.695 39.3536 49.9281 39.1348 50.1729C38.9187 50.4176 38.558 50.7536 38.0528 51.1807C37.6309 51.5348 37.3601 51.7757 37.2403 51.9033C37.1205 52.0283 37.0216 52.1546 36.9434 52.2822L39.752 52.2822Z"
+              fill="#F5F5F5" />
+            <rect
+              x="47"
+              y="1"
+              width="6"
+              height="31"
+              rx="1"
+              fill="#B8C6D6"
+              fill-opacity="0.4"
+              stroke="#2F4258"
+              stroke-opacity="0.15" />
+            <rect
+              x="47"
+              y="69"
+              width="6"
+              height="26"
+              rx="1"
+              fill="#B8C6D6"
+              fill-opacity="0.4"
+              stroke="#2F4258"
+              stroke-opacity="0.15" />
+          </svg>
         </div>
       </div>
     </div>
@@ -47,18 +195,18 @@
 </template>
 
 <script>
-import ButtonStorey from '@/components/ButtonStorey.vue';
-import StoreyPlan from '@/components/StoreyPlan.vue';
-import { ref, toRef, watch, computed } from 'vue';
-import { useStore } from 'vuex';
-import { useRouter } from 'vue-router';
+import ButtonStorey from "@/components/ButtonStorey.vue";
+import StoreyPlan from "@/components/StoreyPlan.vue";
+import { ref, toRef, watch, computed } from "vue";
+import { useStore } from "vuex";
+import { useRouter } from "vue-router";
 
 export default {
   props: {
     id: {
       required: true,
-      type: [String, Number]
-    }
+      type: [String, Number],
+    },
   },
   setup(props) {
     const store = useStore();
@@ -66,41 +214,44 @@ export default {
     const storey = ref(null);
     const entrance = ref(null);
     const showedFlat = ref(null);
-    const id = toRef(props, 'id');
+    const id = toRef(props, "id");
 
     const getEntrance = async (id) => {
-      store.dispatch('loaders/start', 'loading entrance');
-      entrance.value = await store.dispatch('entrances/entrancesOne', { id });
-      store.dispatch('loaders/end', 'loading entrance');
+      store.dispatch("loaders/start", "loading entrance");
+      entrance.value = await store.dispatch("entrances/entrancesOne", { id });
+      store.dispatch("loaders/end", "loading entrance");
     };
 
     const getStorey = async () => {
-      store.dispatch('loaders/start', 'loading storeys');
-      storey.value = await store.dispatch('storeys/storeysOne', { id: id.value });
-      store.dispatch('loaders/end', 'loading storeys');
+      store.dispatch("loaders/start", "loading storeys");
+      storey.value = await store.dispatch("storeys/storeysOne", {
+        id: id.value,
+      });
+      store.dispatch("loaders/end", "loading storeys");
     };
 
     const load = async () => {
       await getStorey();
       await getEntrance(storey.value.entrance);
-    }
+    };
 
     watch(id, load, { immediate: true });
 
     const storeys = computed(() => {
-      if(!entrance.value?.storeys) return null;
-      const entries = Object.entries(entrance.value?.storeys).sort((a, b) => b - a);
+      if (!entrance.value?.storeys) return null;
+      const entries = Object.entries(entrance.value?.storeys).sort(
+        (a, b) => b - a
+      );
       return entries.map(([value, key]) => ({ id: key, value })).reverse();
     });
 
     const imageMap = computed(() => storey.value?.image_maps?.[0]);
 
-
     const changeStorey = (storeyId) => {
-      router.push({ name: 'storey', params: { id: storeyId } });
-    }
+      router.push({ name: "storey", params: { id: storeyId } });
+    };
 
-    const isActive = (storeyId) => +storeyId === +id.value
+    const isActive = (storeyId) => +storeyId === +id.value;
 
     return {
       storey,
@@ -109,50 +260,48 @@ export default {
       changeStorey,
       isActive,
       imageMap,
-      showedFlat
-    }
+      showedFlat,
+    };
   },
   components: {
     ButtonStorey,
     StoreyPlan,
-  }
-}
+  },
+};
 </script>
 
 <style scoped>
+.content {
+  @apply tw-h-full;
+}
+
+.first {
+}
+.map {
+  @apply tw-mb-40 lg:tw-mb-0;
+}
+.last {
+  @apply tw-flex tw-justify-between tw-items-center lg:tw-justify-start 2xl:tw-justify-center lg:tw-gap-60;
+}
+
+@screen lg {
   .content {
     display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: auto auto auto;
+    grid-template-areas:
+      "A A A  B B B B B B"
+      "C C C  B B B B B B";
   }
-
-  @screen md {
-    .content {
-      grid-template-rows: auto auto 1fr;
-    }
+  .first {
+    grid-area: A;
+    @apply lg:tw-w-[420px] 2xl:tw-w-[640px];
   }
+  .map {
+    @apply tw-py-30 lg:tw-border-l lg:tw-border-secondary/15;
 
-  @screen lg {
-    .content {
-      grid-template-columns: 70px 180px 1fr;
-      grid-template-rows: 1fr 1fr;
-      column-gap: 30px;
-      height: calc(100vh - 182px);
-    }
-
-    .second {
-      grid-column: 1 / 2;
-      grid-row: 1 / 3;
-    }
-
-    .first {
-      grid-column: 2 / 3;
-      grid-row: 1 / 3;
-    }
-
-    .third {
-      grid-column: 3 / 4;
-      grid-row: 1 / 3;
-    }
+    grid-area: B;
   }
+  .last {
+    grid-area: C;
+  }
+}
 </style>
