@@ -7,10 +7,8 @@
       <div class="tw-font-arial tw-mb-20 2xl:tw-mb-0 contacts-b">
         <p
           v-if="address"
-          class="tw-text-secondary tw-leading-120 tw-text-md tw-mb-20 2xl:tw-text-lg md:tw-max-w-[600px]">
-          <!-- {{ address }} -->
-          Башкортостан, <br />
-          г. Уфа, ул. Новоселов, 10
+          class="tw-text-secondary tw-leading-120 tw-text-md tw-mb-20 2xl:tw-text-lg md:tw-max-w-[600px]" v-html="address"
+        >
         </p>
         <div class="tw-text-gray md:tw-flex md:-tw-mx-20">
           <div class="md:tw-px-20">
