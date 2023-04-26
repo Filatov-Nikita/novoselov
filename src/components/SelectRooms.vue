@@ -1,5 +1,6 @@
 <template>
   <AppSelect
+    ref="select"
     name="liter"
     label="Комнат"
     v-slot="{ close, showed, style, handleChange, field }"
@@ -61,6 +62,9 @@ export default {
         : fieldSet.add(room);
       const fieldValue = Array.from(fieldSet);
       handleChange(fieldValue);
+    },
+    reset() {
+      this.$refs.select?.onChange(null);
     }
   },
   components: {

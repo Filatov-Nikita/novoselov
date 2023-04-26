@@ -1,5 +1,6 @@
 <template>
   <AppSelect
+    ref="select"
     name="liter"
     label="Площадь"
     v-slot="{ close, showed, style, handleChange }"
@@ -53,6 +54,9 @@ export default {
     },
     middleware(event) {
       return event.srcElement !== document.body;
+    },
+    reset() {
+      this.$refs.select?.onChange(null);
     }
   },
   components: {

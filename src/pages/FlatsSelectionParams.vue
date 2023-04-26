@@ -6,14 +6,17 @@
         <section class="tw-pb-20 lg:tw-py-80 md:tw-pb-60 2xl:tw-pb-120 tw-pt-30 md:tw-pt-40">
           <div class="tw-flex tw-flex-wrap -tw-ml-24 md:-tw-mt-6 md:tw-max-w-[720px] 2xl:tw-max-w-[1172px]">
             <SelectStoreys
+              ref="storeys"
               class="tw-ml-24 md:tw-mt-6 tw-basis-full md:tw-basis-[210px]"
               v-model="filter.storey"
             />
             <SelectRooms
+              ref="rooms"
               class="tw-ml-24 md:tw-mt-6 tw-basis-full md:tw-basis-[210px]"
               v-model="filter.rooms"
             />
             <SelectSquare
+              ref="square"
               class="tw-ml-24 md:tw-mt-6 tw-basis-full md:tw-basis-[210px]"
               v-model="filter.square"
             />
@@ -27,9 +30,22 @@
           <Spinner size="100px" />
         </div>
         <template v-if="flats">
-          <p class="lg:tw-text-lg tw-text-md tw-text-secondary tw-leading-100 tw-mb-30">
-            Найдено {{ flats.length }} квартир
-          </p>
+          <div class="md:tw-flex md:tw-justify-between">
+            <div class="tw-mb-20 tw-items-start tw-flex tw-flex-wrap tw-gap-x-30 tw-gap-y-10 md:tw-mb-0 md:tw-order-1">
+              <button @click="clearFilter" class="tw-flex">
+                <AppIcon class="tw-mr-10" name="reset" size="18px" fill="gray" />
+                <span class="tw-text-gray tw-text-sm tw-leading-100 tw-mt-4">Сбросить фильтр</span>
+              </button>
+
+              <button class="tw-flex" @click="changeOrder">
+                <span class="tw-mr-10 tw-text-gray tw-text-sm tw-leading-100 tw-mt-4">Цена по возрастанию</span>
+                <AppIcon class="tw-stroke-gray" :class="{ 'tw-rotate-180': filter.sortOrder === 'asc' }" name="arrow-down" size="18px" />
+              </button>
+            </div>
+            <p class="lg:tw-text-lg tw-text-md tw-text-secondary tw-leading-100 tw-mb-30">
+              Найдено {{ flats.length }} квартир
+            </p>
+          </div>
           <FlatsParamsList :items="flats" />
         </template>
       </div>
@@ -51,10 +67,16 @@ export default {
   setup() {
     const store = useStore();
 
+    const storeys = ref(null);
+    const rooms = ref(null);
+    const square = ref(null);
+
     const filter = ref({
       storey: null,
       rooms: null,
       square: null,
+      sort: 'price',
+      sortOrder: 'desc'
     });
 
     const filterGetters = {
@@ -72,6 +94,12 @@ export default {
         filter.total_area_min = value[0];
         filter.total_area_max = value[1];
       },
+      sort: (filter, value) => {
+        filter.sort_by = value;
+      },
+      sortOrder: (filter, value) => {
+        filter.sort_order = value;
+      },
     }
 
     const flats = ref(null);
@@ -84,17 +112,38 @@ export default {
       return newFilter;
     };
 
+    function changeOrder() {
+      filter.value.sortOrder = filter.value.sortOrder === 'asc' ? 'desc' : 'asc';
+    }
+
     const getFlats = async () => {
       store.dispatch('loaders/start', 'loading flats');
       flats.value = await store.dispatch('flats/getFlats', makeFilter());
       store.dispatch('loaders/end', 'loading flats');
     };
 
+    function clearFilter() {
+      filter.value = {
+        storey: null,
+        rooms: null,
+        square: null,
+      }
+
+      storeys.value?.reset();
+      rooms.value?.reset();
+      square.value?.reset();
+    }
+
     watch(filter, () => getFlats(), { deep: true, immediate: true });
 
     return {
       filter,
-      flats
+      flats,
+      clearFilter,
+      storeys,
+      rooms,
+      square,
+      changeOrder
     }
   },
   components: {

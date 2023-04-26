@@ -16,7 +16,7 @@
       <img
         v-if="item.images"
         class="tw-w-auto tw-h-[160px] tw-object-contain tw-object-top tw-mx-auto"
-        :src="item.images[0]"
+        :src="item.images[1]"
         width="160"
         height="160"
         loading="lazy"
