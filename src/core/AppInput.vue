@@ -13,14 +13,14 @@
           class="tw-block tw-w-full tw-h-full full input"
           :class="{ 'tw-text-white': !light, 'tw-text-gray': light }"
           :type="type"
-          :id="name"
+          :id="$.uid"
           v-model="value"
           v-bind="type === 'number' ? { ...listeners, step: '0.1' } : listeners"
           :disabled="disabled"
           v-maska="type === 'tel' ? '+7 (9##) ###-##-##' : ''"
           :readonly="readOnly"
         >
-        <label :for="name" class="label" :class="{ 'dirty': hasValue }">{{ label }}</label>
+        <label :for="$.uid" class="label" :class="{ 'dirty': hasValue }">{{ label }}</label>
       </div>
       <div v-if="$slots.append" class="tw-h-[50px] tw-shrink-0 tw-pl-8 tw-flex tw-items-center">
         <slot name="append" />
