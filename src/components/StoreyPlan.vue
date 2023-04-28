@@ -36,7 +36,7 @@
         </svg>
         <div class="side side--top">Двор (ул. Новосёлов, 10)</div>
         <div class="side side--left">ул. Новосёлов</div>
-        <div class="side side--right">ул. Новосёлов</div>
+        <div class="side side--right"> ул. Шолохова</div>
         <div class="side side--bottom">Двор (ул. Новосёлов, 6)</div>
       </div>
     </div>

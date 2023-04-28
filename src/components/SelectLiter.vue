@@ -75,6 +75,9 @@ export default {
         : fieldSet.add(liter);
       const fieldValue = Array.from(fieldSet);
       handleChange(fieldValue);
+    },
+    reset() {
+      this.$refs.select?.onChange(null);
     }
   },
   components: {

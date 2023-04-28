@@ -4,20 +4,25 @@
       <div class="wrapper">
         <h1 class="h1">Подбор по параметрам</h1>
         <section class="tw-pb-20 lg:tw-py-80 md:tw-pb-60 2xl:tw-pb-120 tw-pt-30 md:tw-pt-40">
-          <div class="tw-flex tw-flex-wrap -tw-ml-24 md:-tw-mt-6 md:tw-max-w-[720px] 2xl:tw-max-w-[1172px]">
+          <div class="tw-flex tw-flex-wrap -tw-ml-24 md:-tw-mt-6 md:tw-max-w-[720px] xl:tw-max-w-[1172px]">
+            <!-- <SelectLiter
+              ref="liter"
+              class="tw-ml-24 md:tw-mt-6 tw-basis-full md:tw-basis-[150px] xl:tw-basis-[210px]"
+              v-model="filter.liter"
+            /> -->
             <SelectStoreys
               ref="storeys"
-              class="tw-ml-24 md:tw-mt-6 tw-basis-full md:tw-basis-[210px]"
+              class="tw-ml-24 md:tw-mt-6 tw-basis-full md:tw-basis-[150px] xl:tw-basis-[210px]"
               v-model="filter.storey"
             />
             <SelectRooms
               ref="rooms"
-              class="tw-ml-24 md:tw-mt-6 tw-basis-full md:tw-basis-[210px]"
+              class="tw-ml-24 md:tw-mt-6 tw-basis-full md:tw-basis-[150px] xl:tw-basis-[210px]"
               v-model="filter.rooms"
             />
             <SelectSquare
               ref="square"
-              class="tw-ml-24 md:tw-mt-6 tw-basis-full md:tw-basis-[210px]"
+              class="tw-ml-24 md:tw-mt-6 tw-basis-full md:tw-basis-[150px] xl:tw-basis-[210px]"
               v-model="filter.square"
             />
           </div>
@@ -70,8 +75,10 @@ export default {
     const storeys = ref(null);
     const rooms = ref(null);
     const square = ref(null);
+    const liter = ref(null);
 
     const filter = ref({
+      liter: null,
       storey: null,
       rooms: null,
       square: null,
@@ -80,6 +87,10 @@ export default {
     });
 
     const filterGetters = {
+      liter: (filter, value) => {
+        if(value.length <= 0) return;
+        filter.house_id = value?.[0]?.id
+      },
       storey: (filter, value) => {
         filter.storey_min = value[0];
         filter.storey_max = value[1];
@@ -127,11 +138,13 @@ export default {
         storey: null,
         rooms: null,
         square: null,
+        liter: null
       }
 
       storeys.value?.reset();
       rooms.value?.reset();
       square.value?.reset();
+      liter.value?.reset();
     }
 
     watch(filter, () => getFlats(), { deep: true, immediate: true });
@@ -143,6 +156,7 @@ export default {
       storeys,
       rooms,
       square,
+      liter,
       changeOrder
     }
   },

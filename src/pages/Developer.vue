@@ -12,7 +12,7 @@
         <div class="features">
           <div class="tw-flex tw-flex-wrap -tw-ml-40 tw-mb-30 -tw-mt-20 xl:tw-mb-[50px] 2xl:tw-mb-30">
             <div class="tw-pt-20 tw-pl-40 tw-w-1/2 md:tw-w-auto md:tw-basis-[150px]">
-              <p class="tw-text-lg tw-leading-100 tw-mb-10 tw-text-secondary tw-font-stolz md:tw-text-xl10 xl:tw-text-xl 2xl:tw-text-xl10">19+</p>
+              <p class="tw-text-lg tw-leading-100 tw-mb-10 tw-text-secondary tw-font-stolz md:tw-text-xl10 xl:tw-text-xl 2xl:tw-text-xl10">20+</p>
               <p class="tw-leading-120 tw-text-gray">лет на рынке <br/> недвижимости</p>
             </div>
             <div class="tw-pt-20 tw-pl-40 tw-w-1/2 md:tw-w-auto md:tw-basis-[150px]">
@@ -46,7 +46,7 @@ export default {
     return {
       content: `
         <p>
-          Более 19 лет имя компании «Агидель-ИнвестСтрой» ассоциируется у жителей г. Уфы со стабильностью
+          Более 20 лет имя компании «Агидель-ИнвестСтрой» ассоциируется у жителей г. Уфы со стабильностью
           и гарантией качества. Мы привлекаем к работе лучших специалистов и используем самые последние инженерные решения, позволяющие использовать с пользой каждый квадратный метр квартиры. Тандем
           с генеральным подрядчиком ООО «Уфастроймонтаж» обеспечивает высокое качество работ и применение современных материалов. Поэтому неудивительно, что каждый год спрос на наши квартиры только растет.
         </p>
