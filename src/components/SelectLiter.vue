@@ -1,7 +1,7 @@
 <template>
   <AppSelect
     name="liter"
-    label="Литер"
+    label="Секция"
     v-slot="{ close, showed, style, handleChange, field }"
     v-bind="{ display, modelValue }"
     @update:modelValue="$emit('update:modelValue', $event)"
@@ -21,7 +21,6 @@
           'tw-border-gray tw-bg-white tw-text-secondary': !isActive(liter),
           'tw-border-orange tw-bg-orange tw-text-white active': isActive(liter),
          }"
-         :disabled="liter.id !== 1"
         @click="onInput(liter, field, handleChange)"
       >
         {{ liter.label }}
@@ -52,10 +51,6 @@ export default {
         {
           id: 2,
           label: '2'
-        },
-        {
-          id: 3,
-          label: '3'
         },
       ]
     };

@@ -5,11 +5,11 @@
         <h1 class="h1">Подбор по параметрам</h1>
         <section class="tw-pb-20 lg:tw-py-80 md:tw-pb-60 2xl:tw-pb-120 tw-pt-30 md:tw-pt-40">
           <div class="tw-flex tw-flex-wrap -tw-ml-24 md:-tw-mt-6 md:tw-max-w-[720px] xl:tw-max-w-[1172px]">
-            <!-- <SelectLiter
+            <SelectLiter
               ref="liter"
               class="tw-ml-24 md:tw-mt-6 tw-basis-full md:tw-basis-[150px] xl:tw-basis-[210px]"
               v-model="filter.liter"
-            /> -->
+            />
             <SelectStoreys
               ref="storeys"
               class="tw-ml-24 md:tw-mt-6 tw-basis-full md:tw-basis-[150px] xl:tw-basis-[210px]"
@@ -89,7 +89,7 @@ export default {
     const filterGetters = {
       liter: (filter, value) => {
         if(value.length <= 0) return;
-        filter.house_id = value?.[0]?.id
+        filter.entrance_id = value?.[0]?.id
       },
       storey: (filter, value) => {
         filter.storey_min = value[0];
