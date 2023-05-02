@@ -24,6 +24,7 @@
       :viewBox="`0 0 ${width} ${height}`"
       fill="none"
       preserveAspectRatio="xMinYMin slice">
+      <slot name="flags"></slot>
       <path
         v-for="(path, i) in paths.first"
         :key="i"
@@ -34,43 +35,6 @@
         @mouseenter="onEnter($event, i + 1)"
         @mouseleave="onLeave($event, i + 1)" />
     </svg>
-    <!-- <path
-        v-for="(path, i) in paths.second"
-        :key="i"
-        :opacity="activeD === path ? 0.65 : 0"
-        :d="path"
-        fill="#FBB03B"
-        @click="onClick($event, i)"
-        @mouseenter="onEnter"
-        @mouseleave="onLeave" /> -->
-
-    <!-- <svg
-      style="
-        height: 100%;
-        left: 0;
-        overflow: visible !important;
-        position: absolute;
-        top: 0;
-        width: 100%;
-      "
-      :viewBox="`0 0 ${width} ${height}`"
-      :preserveAspectRatio="ratio"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg">
-      <path
-        v-for="(storey, i) in storeys"
-        :key="storey.id"
-        class="tw-opacity-0 tw-cursor-pointer"
-        :class="[
-          activeStorey?.id === storey.id ? 'tw-opacity-50' : 'tw-opacity-0',
-        ]"
-        fill="#FF8413"
-        :d="d"
-        :style="{ transform: `translateY(${offset * i}px)` }"
-        @click="onClick(storey)"
-        @mouseenter="!tappable ? $emit('enter', storey.id) : null"
-        @mouseleave="!tappable ? $emit('leave', storey.id) : null" />
-    </svg> -->
   </div>
 </template>
 
@@ -125,7 +89,6 @@ export default {
   },
   methods: {
     onClick(e, id) {
-      console.log(id);
       if (e.target?.getAttribute("d")) {
         this.activeD = e.target?.getAttribute("d");
         if (this.tappable && this.activeStorey?.id !== id) {
@@ -148,12 +111,6 @@ export default {
         return this.$emit("leave", id);
       }
     },
-    // onClick(storey) {
-    //   if (this.tappable && this.activeStorey?.id !== storey.id) {
-    //     return this.$emit("enter", storey.id);
-    //   }
-    //   this.$router.push({ name: "storey", params: { id: storey.id } });
-    // },
   },
 };
 </script>
