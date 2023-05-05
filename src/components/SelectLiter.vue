@@ -1,5 +1,6 @@
 <template>
   <AppSelect
+    ref="select"
     name="liter"
     label="Секция"
     v-slot="{ close, showed, style, handleChange, field }"

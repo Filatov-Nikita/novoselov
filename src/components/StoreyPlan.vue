@@ -151,14 +151,14 @@ export default {
       hidePopup();
     };
 
-    watch(imageMap, () => {
-      nextTick(() => {
-        map.value.classList.remove("a");
-        setTimeout(() => {
-          map.value.classList.add("a");
-        }, 50);
-      });
-    });
+    // watch(imageMap, () => {
+    //   nextTick(() => {
+    //     map.value.classList.remove("a");
+    //     setTimeout(() => {
+    //       map.value.classList.add("a");
+    //     }, 50);
+    //   });
+    // });
 
     return {
       map,

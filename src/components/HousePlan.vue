@@ -1,5 +1,5 @@
 <template>
-  <div class="tw-overflow-x-scroll scrollbar tw-relative">
+  <div class="tw-overflow-x-scroll app-scroll-x app-scroll-y tw-relative">
     <img class="tw-max-w-none lg:tw-mx-0" ref="img" width="2280" height="1080" src="@/assets/images/house-1.jpg" />
     <PopupTouchMove v-if="tappable && showTouchPopup" @hide="showTouchPopup = false"/>
 
@@ -49,13 +49,12 @@ export default {
   },
   mounted() {
     this.calcStyles();
-    window.addEventListener('load', this.calcStyles);
+    this.$refs.img.addEventListener('load', this.calcStyles);
     this.resizer = throttle(500, this.calcStyles);
     window.addEventListener('resize', this.resizer);
   },
   beforeUnmount() {
     window.removeEventListener('resize', this.resizer);
-    window.removeEventListener('load', this.calcStyles);
   },
   data() {
     return {
@@ -158,18 +157,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-/* .scrollbar::-webkit-scrollbar {
-  width: 1em;
-}
-
-.scrollbar::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-}
-
-.scrollbar::-webkit-scrollbar-thumb {
-  background-color: darkgrey;
-  outline: 1px solid slategrey;
-} */
-</style>

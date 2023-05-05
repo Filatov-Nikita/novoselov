@@ -15,13 +15,13 @@
               <div class="tw-mb-20 lg:tw-mb-30">
                 <div
                   class="tw-flex tw-justify-between lg:tw-justify-start lg:tw-gap-40 2xl:tw-flex-col 2xl:tw-gap-0 tw-mb-10">
-                  <div class="tw-text-lg">№{{ flat.number }}</div>
-                  <div class="tw-text-lg tw-text-gray">
+                  <div class="tw-font-stolz tw-text-lg">№{{ flat.number }}</div>
+                  <div class="tw-font-stolz tw-text-lg tw-text-gray">
                     {{ flat.total_area }} <span>м<sup>2</sup></span>
                   </div>
                 </div>
                 <p class="tw-w-full tw-text-sm">
-                  {{ flat.house_name }} литер • {{ flat.storey_number }} этаж •
+                  Секция {{ flat.entrance }} • {{ flat.storey_number }} этаж •
                   {{ flat.rooms_number }} комнаты
                 </p>
               </div>
@@ -226,7 +226,7 @@ export default {
       flat: null,
       showedBook: false,
       showedView: false,
-      visibleImage: 2,
+      visibleImage: 1,
     };
   },
   methods: {
@@ -243,10 +243,10 @@ export default {
         pdf_info_rooms_count: this.flat.rooms_number,
         pdf_info_kv_num: this.flat.number,
         pdf_info_kv_etazh: this.flat.storey_number,
-        pdf_info_kompleks: this.flat.house_name,
+        pdf_info_kompleks: this.flat.entrance,
         pdf_info_kv_sq: this.flat.total_area,
-        pdf_info_image: this.images.plan,
-        pdf_info_storey_plan_image: this.images.place,
+        pdf_info_image: this.flat.images[1],
+        pdf_info_storey_plan_image: this.flat.images[0],
       });
 
       this.downloadPDF(path);
@@ -294,11 +294,11 @@ export default {
 }
 
 .side--left {
-  @apply -tw-left-[130px];
+  @apply  lg:-tw-left-[130px];
 }
 
 .side--right {
-  @apply -tw-right-[130px];
+  @apply tw-right-0 lg:-tw-right-[130px];
 }
 
 .side--bottom,
@@ -360,10 +360,6 @@ export default {
     width: auto;
     .map-img {
       @apply tw-my-[75px] lg:tw-mx-[130px] lg:tw-my-[36px] tw-relative;
-    }
-    .side--left,
-    .side--right {
-      @apply tw-hidden lg:tw-block;
     }
   }
   &__img {

@@ -17,7 +17,7 @@
             <div class="2xl:tw-grid 2xl:tw-place-content-center">
               <div
                 class="tw-text-lg tw-leading-120 tw-font-stolz tw-mb-20 md:tw-mb-40 lg:tw-hidden 2xl:tw-block">
-                Подъезд {{ storey.entrance }},
+                Секция {{ storey.entrance }},
                 <br class="md:tw-hidden lg:tw-block" />
                 этаж {{ storey.number }}
               </div>
@@ -26,7 +26,7 @@
                   class="tw-hidden lg:tw-block tw-w-[70px] tw-text-center tw-text-secondary tw-h-20 tw-mb-20">
                   этаж
                 </div>
-                <div class="tw-flex tw-flex-wrap tw-gap-10 lg:tw-w-[70px]">
+                <div class="tw-flex lg:tw-flex-col-reverse lg:tw-justify-end lg:tw-h-[350px] tw-flex-wrap tw-gap-10 lg:tw-w-[70px]">
                   <div class="" v-for="storey in storeys" :key="storey.id">
                     <ButtonStorey
                       :label="storey.value"
@@ -40,8 +40,8 @@
           <div>
             <div
               class="tw-text-lg tw-leading-120 tw-font-stolz tw-mb-20 md:tw-mb-40 tw-hidden lg:tw-block 2xl:tw-hidden">
-              Подъезд 1, <br class="2xl:tw-hidden" />
-              этаж 15
+              Секция {{ storey.entrance }}, <br class="2xl:tw-hidden" />
+              этаж {{ storey.number }}
             </div>
           </div>
         </div>
@@ -242,7 +242,7 @@ export default {
       const entries = Object.entries(entrance.value?.storeys).sort(
         (a, b) => b - a
       );
-      return entries.map(([value, key]) => ({ id: key, value })).reverse();
+      return entries.map(([value, key]) => ({ id: key, value }));
     });
 
     const imageMap = computed(() => storey.value?.image_maps?.[0]);

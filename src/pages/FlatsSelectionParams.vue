@@ -135,10 +135,12 @@ export default {
 
     function clearFilter() {
       filter.value = {
+        liter: null,
         storey: null,
         rooms: null,
         square: null,
-        liter: null
+        sort: 'price',
+        sortOrder: 'desc'
       }
 
       storeys.value?.reset();

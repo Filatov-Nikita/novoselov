@@ -34,9 +34,9 @@ export default {
         client_secret: process.env.VUE_APP_CLIENT_SECRET,
         header_tel_prefix: rootGetters.prefixhone,
         header_tel: rootGetters.shortPhone,
-        header_logo_image: 'https://2apps.ru/img/logograni.png',
-        header_site: 'grani-ufa.ru',
-        header_email: 'grany-ufa@yandex.ru',
+        header_logo_image: 'https://2apps.ru/img/logonovosel.png',
+        header_site: 'novosel.yes-idea.ru',
+        header_email: 'belierosidomufa@yandex.ru',
         pdf_info_price: 'по запросу',
         ...params
       });

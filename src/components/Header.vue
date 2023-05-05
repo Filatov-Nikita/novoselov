@@ -104,7 +104,7 @@
       <div class="wrapper">
         <div class="tw-flex">
           <router-link
-            class="tw-w-1/2 tw-flex tw-items-center tw-bg-orange tw-rounded-l-[14px] tw-text-white tw-px-8 tw-py-15 tw-border-r tw-border-[#DB5C00]"
+            class="tw-w-1/2 tw-flex tw-items-center tw-justify-center tw-bg-orange tw-rounded-l-[14px] tw-text-white tw-px-8 tw-py-10 tw-border-r tw-border-orangeHover"
             :to="{ name: 'facad.house' }">
             <svg class="tw-w-[30px] tw-h-[30px] tw-mr-10 tw-fill-white">
               <use xlink:href="/sprite.svg#fasad"></use>
@@ -112,7 +112,7 @@
             <div class="tw-leading-100 tw-pt-4">на фасаде</div>
           </router-link>
           <router-link
-            class="tw-w-1/2 tw-flex tw-items-center tw-bg-orange tw-rounded-r-[14px] tw-text-white tw-px-8 tw-py-15"
+            class="tw-w-1/2 tw-flex tw-items-center tw-justify-center tw-bg-orange tw-rounded-r-[14px] tw-text-white tw-px-8 tw-py-10"
             :to="{ name: 'flats.params' }">
             <svg class="tw-w-[30px] tw-h-[30px] tw-mr-10 tw-fill-white">
               <use xlink:href="/sprite.svg#params"></use>

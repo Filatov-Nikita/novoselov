@@ -1,6 +1,6 @@
 <template>
   <div
-    class="-tw-mx-16 md:tw-mx-0 tw-flex tw-flex-wrap md:tw-border-dark-line md:tw-border-opacity-15 md:tw-border-l"
+    class="-tw-mx-16 md:tw-mx-0 tw-flex tw-flex-wrap tw-border-dark-line tw-border-opacity-15 md:tw-border-l"
     :class="{ 'tw-border-t': items.length > 1 }"
   >
     <FlatsParamsItem
