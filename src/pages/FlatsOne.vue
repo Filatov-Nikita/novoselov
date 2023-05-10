@@ -294,11 +294,11 @@ export default {
 }
 
 .side--left {
-  @apply  lg:-tw-left-[130px];
+  @apply tw-left-0 -tw-translate-x-[25px] lg:tw-translate-x-0 lg:-tw-left-[130px];
 }
 
 .side--right {
-  @apply tw-right-0 lg:-tw-right-[130px];
+  @apply tw-right-0 tw-translate-x-[25px] lg:tw-translate-x-0 lg:-tw-right-[130px];
 }
 
 .side--bottom,
@@ -359,7 +359,7 @@ export default {
     scrollbar-width: none;
     width: auto;
     .map-img {
-      @apply tw-my-[75px] lg:tw-mx-[130px] lg:tw-my-[36px] tw-relative;
+      @apply tw-my-[75px] tw-px-30 lg:tw-px-0 lg:tw-mx-[130px] lg:tw-my-[36px] tw-relative;
     }
   }
   &__img {
