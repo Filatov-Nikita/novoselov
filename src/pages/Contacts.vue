@@ -20,7 +20,7 @@
               {{ $store.state.contactPhone }}
             </a>
             <a class="tw-block" href="mailto:grany-ufa@yandex.ru">
-              belierosidomufa@yandex.ru
+              novoselovdom@yandex.ru
             </a>
           </div>
           <div class="md:tw-px-20" v-html="worktime"></div>
