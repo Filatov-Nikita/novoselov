@@ -22,7 +22,7 @@
               </div>
               <div>
                 <p class="tw-text-lg tw-mb-4 2xl:tw-text-xl tw-font-stolz">2</p>
-                <p class="tw-text-gray">секций</p>
+                <p class="tw-text-gray">секции</p>
               </div>
               <div>
                 <p class="tw-text-lg tw-mb-4 2xl:tw-text-xl tw-font-stolz">276</p>
