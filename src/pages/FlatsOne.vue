@@ -14,7 +14,7 @@
               class="md:tw-flex md:tw-justify-between md:tw-items-start lg:tw-block 2xl:tw-grid 2xl:tw-justify-center">
               <div class="tw-mb-20 lg:tw-mb-30">
                 <div
-                  class="tw-flex tw-justify-between lg:tw-justify-start lg:tw-gap-40 2xl:tw-flex-col 2xl:tw-gap-0 tw-mb-10">
+                  class="tw-flex tw-justify-between lg:tw-justify-start md:tw-gap-40 2xl:tw-flex-col 2xl:tw-gap-0 tw-mb-10">
                   <div class="tw-font-stolz tw-text-lg">№{{ flat.number }}</div>
                   <div class="tw-font-stolz tw-text-lg tw-text-gray">
                     {{ flat.total_area }} <span>м<sup>2</sup></span>
