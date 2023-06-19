@@ -26,9 +26,9 @@
         </div>
 
         <div class="2xl:tw-pb-40">
-          <a class="tw-w-full tw-block md:tw-max-w-[200px]" href="https://ucams.ufanet.ru/api/internal/embed/1667795577LVX928/?ttl=3600&autoplay=true&mute=true" target="_blank">
-            <AppButton class="tw-w-full tw-block" tag="span">Онлайн-трансляция</AppButton>
-          </a>
+          <AppButton class="tw-w-full  md:tw-max-w-[200px] tw-block" tag="span" @click="showedView = true">
+            Онлайн-трансляция
+          </AppButton>
         </div>
 
         <div v-if="$grid['2xl']" class="tw-relative overlay tw-overflow-x-hidden app-scroll-y">
@@ -55,6 +55,19 @@
       </button>
       <SwiperGallery :sources="showedGallery" :initialSlide="selectedImage"/>
     </div>
+
+    <GDialog v-model="showedView" background="transparent" content-class="tw-h-screen tw-flex tw-items-center tw-justify-center tw-relative">
+        <template #default="{ onClose }">
+          <button
+            class="tw-absolute tw-right-30 tw-top-0"
+            @click="onClose"
+          >
+            <AppIcon name="close" size="36px" fill="white" />
+          </button>
+          <iframe src="https://ucams.ufanet.ru/api/internal/embed/001-72317491ST-2/?ttl=3600&autoplay=true&mute=true" width="100%" height="500" frameborder="0"></iframe>
+          <!-- <img v-if="hasView" class="tw-w-auto tw-max-h-full" :src="images.view" alt="вид из окна" /> -->
+        </template>
+      </GDialog>
   </app-page>
 </template>
 
@@ -64,6 +77,7 @@ import { useStore } from 'vuex';
 import { useGrid } from 'vue-screen'
 import ProgressItem from '@/components/ProgressItem.vue';
 import SwiperGallery from '@/components/SwiperGallery.vue';
+import { GDialog } from 'gitart-vue-dialog';
 
 export default {
   setup() {
@@ -75,6 +89,7 @@ export default {
     const showedGallery = ref(null);
     const showed2xlGallery = ref(null);
     const selectedImage = ref(null);
+    const showedView = ref(false);
 
     const getGalleries = async () => {
       store.dispatch('loaders/start', 'loading galleries');
@@ -130,12 +145,14 @@ export default {
       show,
       show2xl,
       grid,
-      selectedImage
+      selectedImage,
+      showedView
     };
   },
   components: {
     ProgressItem,
-    SwiperGallery
+    SwiperGallery,
+    GDialog
   },
 };
 </script>

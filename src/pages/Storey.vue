@@ -26,8 +26,8 @@
                   class="tw-hidden lg:tw-block tw-w-[70px] tw-text-center tw-text-secondary tw-h-20 tw-mb-20">
                   этаж
                 </div>
-                <div class="tw-flex lg:tw-flex-col-reverse lg:tw-justify-end lg:tw-h-[350px] tw-flex-wrap tw-gap-10 lg:tw-w-[70px]">
-                  <div class="" v-for="storey in storeys" :key="storey.id">
+                <div class="tw-flex tw-flex-row-reverse lg:tw-h-[350px] tw-flex-wrap tw-gap-10 lg:tw-w-[70px]">
+                  <div v-for="storey in storeys" :key="storey.id">
                     <ButtonStorey
                       :label="storey.value"
                       :active="isActive(storey.id)"
@@ -239,9 +239,7 @@ export default {
 
     const storeys = computed(() => {
       if (!entrance.value?.storeys) return null;
-      const entries = Object.entries(entrance.value?.storeys).sort(
-        (a, b) => b - a
-      );
+      const entries = Object.entries(entrance.value?.storeys).reverse();
       return entries.map(([value, key]) => ({ id: key, value }));
     });
 
