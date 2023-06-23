@@ -34,7 +34,7 @@ export default {
     prettyDate() {
       const dt = new Date(this.created);
       const f = this.prettyNum;
-      return `${f(dt.getDate())}.${f(dt.getMonth())}.${dt.getFullYear()} ${f(dt.getHours())}:${f(dt.getMinutes())}`
+      return `${f(dt.getDate())}.${f(dt.getMonth() + 1)}.${dt.getFullYear()} ${f(dt.getHours())}:${f(dt.getMinutes())}`
     }
   }
 }
