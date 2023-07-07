@@ -127,7 +127,7 @@ export default createStore({
     async getMetric() {
       const {
         data: { body },
-      } = await api.swot("static_pages/5").json();
+      } = await api.swot("static_pages/4").json();
       return body;
     },
   },
