@@ -35,7 +35,7 @@ export default {
         header_tel_prefix: rootGetters.prefixhone,
         header_tel: rootGetters.shortPhone,
         header_logo_image: 'https://2apps.ru/img/logonovosel.png',
-        header_site: 'novosel.yes-idea.ru',
+        header_site: 'https://novoselov-ufa.ru',
         header_email: 'novoselovdom@yandex.ru',
         pdf_info_price: 'по запросу',
         ...params
