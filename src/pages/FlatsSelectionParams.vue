@@ -78,6 +78,7 @@ export default {
     const liter = ref(null);
 
     const filter = ref({
+      status: 'free',
       liter: null,
       storey: null,
       rooms: null,
@@ -87,6 +88,10 @@ export default {
     });
 
     const filterGetters = {
+      status: (filter, value) => {
+        if(!value) return;
+        filter.status = value;
+      },
       liter: (filter, value) => {
         if(value.length <= 0) return;
         filter.entrance_id = value?.[0]?.id
@@ -135,6 +140,7 @@ export default {
 
     function clearFilter() {
       filter.value = {
+        status: 'free',
         liter: null,
         storey: null,
         rooms: null,
