@@ -7,7 +7,7 @@ module.exports = defineConfig({
     chain
       .plugin('html')
       .tap(args => {
-        args[0].title = 'ЖК новоселов Агидель строй инвест.';
+        args[0].title = 'ЖК новоселов Агидель-ИнвестСтрой';
         return args;
       });
 
