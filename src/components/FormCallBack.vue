@@ -46,6 +46,7 @@ export default {
     async submit({ name, cellphone }) {
       await this.$store.dispatch('getFeedback', { name, cellphone, theme: 'Обратный звонок' });
       this.$notify({ type: 'success', text: 'Ваша заявка успешно отправлена!' });
+      this.$ym.fireCallbackGoal();
     }
   }
 }
