@@ -13,7 +13,7 @@
         </a>
         <div
           class="tw-mb-20 xl:tw-mb-0 tw-basis-full xl:tw-basis-[368px] tw-text-[8px] xl:tw-text-xxs tw-leading-100 tw-mr-20 tw-text-gray">
-          © 2003-2022, ООО СЗ «Агидель-ИнвестСтрой». Опубликованная на сайте
+          © 2003-{{ currentYear }}, ООО СЗ «Агидель-ИнвестСтрой». Опубликованная на сайте
           информация носит рекламный характер и не является публичной офертой.
           Проектная декларация на&nbsp;сайте
           <a
@@ -85,7 +85,14 @@ export default {
           link: "https://vk.com/agidelinvest",
         },
       ],
+      currentYear: this.getCurrentYear(),
     };
+  },
+  methods: {
+    getCurrentYear() {
+      const dt = new Date();
+      return dt.getFullYear();
+    }
   },
 };
 </script>
