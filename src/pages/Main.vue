@@ -81,39 +81,39 @@ export default {
       current: 0,
       slides: [
         {
-          text: 'Старт продаж квартир <br class="md:tw-hidden lg:tw-block"> в&nbsp;новом доме',
+          text: 'Квартиры в&nbsp;третьем доме комплекса',
           image: require('@/assets/images/main/home.jpg'),
         },
         {
-          text: 'Старт продаж квартир <br class="md:tw-hidden lg:tw-block"> в&nbsp;новом доме',
+          text: 'Квартиры в&nbsp;третьем доме комплекса',
           image: require('@/assets/images/main/r1.jpg'),
         },
         {
-          text: 'Старт продаж квартир <br class="md:tw-hidden lg:tw-block"> в&nbsp;новом доме',
+          text: 'Квартиры в&nbsp;третьем доме комплекса',
           image: require('@/assets/images/main/r3.jpg'),
         },
         {
-          text: 'Старт продаж квартир <br class="md:tw-hidden lg:tw-block"> в&nbsp;новом доме',
+          text: 'Квартиры в&nbsp;третьем доме комплекса',
           image: require('@/assets/images/main/r4.jpg'),
         },
         {
-          text: 'Старт продаж квартир <br class="md:tw-hidden lg:tw-block"> в&nbsp;новом доме',
+          text: 'Квартиры в&nbsp;третьем доме комплекса',
           image: require('@/assets/images/main/r5.jpg'),
         },
         {
-          text: 'Старт продаж квартир <br class="md:tw-hidden lg:tw-block"> в&nbsp;новом доме',
+          text: 'Квартиры в&nbsp;третьем доме комплекса',
           image: require('@/assets/images/main/r6.jpg'),
         },
         {
-          text: 'Старт продаж квартир <br class="md:tw-hidden lg:tw-block"> в&nbsp;новом доме',
+          text: 'Квартиры в&nbsp;третьем доме комплекса',
           image: require('@/assets/images/main/r7.jpg'),
         },
         {
-          text: 'Старт продаж квартир <br class="md:tw-hidden lg:tw-block"> в&nbsp;новом доме',
+          text: 'Квартиры в&nbsp;третьем доме комплекса',
           image: require('@/assets/images/main/r8.jpg'),
         },
         {
-          text: 'Старт продаж квартир <br class="md:tw-hidden lg:tw-block"> в&nbsp;новом доме',
+          text: 'Квартиры в&nbsp;третьем доме комплекса',
           image: require('@/assets/images/main/r9.jpg'),
         },
       ]
