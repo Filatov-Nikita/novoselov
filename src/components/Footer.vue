@@ -12,7 +12,7 @@
             alt="логотип агидель-инвест-строй" />
         </a>
         <div
-          class="tw-mb-20 xl:tw-mb-0 tw-basis-full xl:tw-basis-[368px] tw-text-[8px] xl:tw-text-xxs tw-leading-100 tw-mr-20 tw-text-gray">
+          class="tw-mb-20 xl:tw-mb-0 tw-basis-full xl:tw-basis-[300px] tw-text-[8px] xl:tw-text-xxs tw-leading-100 tw-mr-20 tw-text-gray">
           © 2003-{{ currentYear }}, ООО СЗ «Агидель-ИнвестСтрой». Опубликованная на сайте
           информация носит рекламный характер и не является публичной офертой.
           Проектная декларация на&nbsp;сайте
@@ -26,12 +26,14 @@
 
         <div class="tw-hidden 2xl:tw-block tw-grow"></div>
 
-        <a
-          class="tw-hidden xl:tw-block tw-text-gray tw-underline tw-text-xxs tw-self-end tw-mr-20 2xl:tw-mr-[82px]"
-          href="/policy.pdf"
-          download>
-          Политика конфиденциальности
-        </a>
+        <div class="tw-w-full tw-mb-12 tw-text-gray tw-text-xxs xl:tw-mb-0 xl:tw-w-auto xl:tw-mr-40 2xl:tw-mr-[82px]">
+          <a class="tw-underline tw-block tw-w-fit" href="/policy.pdf" target="_blank">
+            Политика конфиденциальности
+          </a>
+          <a class="tw-underline tw-block tw-w-fit tw-mt-4" href="/sogl.pdf" target="_blank">
+            Cогласие на обработку персональных данных
+          </a>
+        </div>
 
         <div class="tw-flex tw-mr-8 lg:tw-mr-60 tw-space-x-8">
           <a
@@ -54,9 +56,9 @@
           3D-визуализация, дизайн и разработка
         </div>
 
-        <a href="#" class="tw-w-[78px] tw-h-[25px]">
+        <a href="#" class="tw-w-[80px] tw-h-[25px]">
           <img
-            width="78"
+            width="119"
             height="25"
             class="tw-w-full"
             src="@/assets/images/logo-yes.svg"
@@ -73,8 +75,8 @@ export default {
     return {
       soc: [
         {
-          name: "/sprite.svg#social-whatsapp",
-          link: "https://wa.me/73472242041",
+          name: "/sprite.svg#social-max",
+          link: "https://max.ru/id0278093946_bot",
         },
         {
           name: '/sprite.svg#social-telegram',
